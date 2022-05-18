@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+<script data-ad-client="ca-pub-3200468627061889" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3200468627061889"
+     crossorigin="anonymous"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tiansztiansz.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Matlab电力企业的窃漏电用户自动识别">
+<meta property="og:url" content="https://tiansztiansz.github.io/2022/01/31/matlab%E7%94%B5%E5%8A%9B%E4%BC%81%E4%B8%9A%E7%9A%84%E7%AA%83%E6%BC%8F%E7%94%B5%E7%94%A8%E6%88%B7%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB/index.html">
+<meta property="og:site_name" content="宁静致远的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-31T09:37:07.430Z">
+<meta property="article:modified_time" content="2022-01-31T09:43:15.484Z">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://tiansztiansz.github.io/2022/01/31/matlab%E7%94%B5%E5%8A%9B%E4%BC%81%E4%B8%9A%E7%9A%84%E7%AA%83%E6%BC%8F%E7%94%B5%E7%94%A8%E6%88%B7%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Matlab电力企业的窃漏电用户自动识别 | 宁静致远的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宁静致远的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">65</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">160</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tiansztiansz.github.io/2022/01/31/matlab%E7%94%B5%E5%8A%9B%E4%BC%81%E4%B8%9A%E7%9A%84%E7%AA%83%E6%BC%8F%E7%94%B5%E7%94%A8%E6%88%B7%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宁静致远的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Matlab电力企业的窃漏电用户自动识别
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-31 17:37:07 / 修改时间：17:43:15" itemprop="dateCreated datePublished" datetime="2022-01-31T17:37:07+08:00">2022-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/matlab/" itemprop="url" rel="index"><span itemprop="name">matlab</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a><span id="more"></span>数据预处理</h2><h3 id="缺失值处理（此处为拉格朗日插值）"><a href="#缺失值处理（此处为拉格朗日插值）" class="headerlink" title="缺失值处理（此处为拉格朗日插值）"></a>缺失值处理（此处为拉格朗日插值）</h3><h4 id="主函数：Lagrange-interpolation-m"><a href="#主函数：Lagrange-interpolation-m" class="headerlink" title="主函数：Lagrange_interpolation.m"></a>主函数：Lagrange_interpolation.m</h4><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 拉格朗日插值算法</span></span><br><span class="line">clear;</span><br><span class="line"><span class="comment">% 参数初始化</span></span><br><span class="line"><span class="comment">% 输入数据路径,需要使用Excel格式；</span></span><br><span class="line">inputfile<span class="built_in">=</span><span class="string">&#x27;..\data\missing_data.xls&#x27;</span>;   </span><br><span class="line"><span class="comment">%输出数据路径,需要使用Excel格式</span></span><br><span class="line">outputfile<span class="built_in">=</span><span class="string">&#x27;..\tmp\missing_data_processed.xls&#x27;</span>;            </span><br><span class="line"></span><br><span class="line"><span class="comment">%% 拉格朗日插值</span></span><br><span class="line"><span class="comment">% 读入文件</span></span><br><span class="line">data<span class="built_in">=</span>xlsread(inputfile);</span><br><span class="line">[rows,cols]<span class="built_in">=</span>size(data);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 按照每列进行插值处理</span></span><br><span class="line"><span class="comment">% 其中ployinterp_column为自定义函数，针对列向量进行插值</span></span><br><span class="line">for j<span class="built_in">=</span><span class="number">1</span>:cols</span><br><span class="line">   data(:,j)<span class="built_in">=</span>ployinterp_column(data(:,j)); </span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 写入文件</span></span><br><span class="line">xlswrite(outputfile,data);</span><br></pre></td></tr></table></figure>
+<h4 id="被调用函数：ployinterp-column-m"><a href="#被调用函数：ployinterp-column-m" class="headerlink" title="被调用函数：ployinterp_column.m"></a>被调用函数：ployinterp_column.m</h4><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">function outputdata<span class="built_in">=</span> ployinterp_column(columndata)</span><br><span class="line"><span class="comment">%% 针对每列进行插值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 输入参数说明：</span></span><br><span class="line"><span class="comment">% columndata: 输入的列数据，含有缺失值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出参数说明：</span></span><br><span class="line"><span class="comment">% output: 输出插值过的数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%% 把输入列数据分为非缺失值和缺失值数据</span></span><br><span class="line">nans <span class="built_in">=</span> isnan(columndata);  <span class="comment">%  区分columndata中为NaN的数据下标</span></span><br><span class="line">notzeroIndexes <span class="built_in">=</span> find(nans); <span class="comment">% 寻找缺失值下标</span></span><br><span class="line"><span class="comment">%zeroIndexes = find(nans==0); % 寻找非缺失值下标</span></span><br><span class="line">rows<span class="built_in">=</span>size(columndata); <span class="comment">%原始数据的行数 </span></span><br><span class="line"><span class="comment">%currentValues=zeros(size(zeroIndexes));% 初始化当前值矩阵</span></span><br><span class="line">for i<span class="built_in">=</span><span class="number">1</span>:size(notzeroIndexes)</span><br><span class="line">    pre5<span class="built_in">=</span>findPre5(notzeroIndexes(i),columndata);</span><br><span class="line">    last5<span class="built_in">=</span>findLast5(notzeroIndexes(i),rows(<span class="number">1</span>),columndata);</span><br><span class="line">    [pre5rows,pre5cols]<span class="built_in">=</span>size(pre5);</span><br><span class="line">    [last5rows,last5cols]<span class="built_in">=</span>size(last5);</span><br><span class="line">    missingValue<span class="built_in">=</span>polyinterp([<span class="number">1</span>:pre5cols,pre5cols+<span class="number">2</span>:last5cols+pre5cols+<span class="number">1</span>],...</span><br><span class="line">        [pre5,last5],pre5cols+<span class="number">1</span>); <span class="comment">% 拉格朗日插值</span></span><br><span class="line">    columndata(notzeroIndexes(i),<span class="number">1</span>)<span class="built_in">=</span>missingValue;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 返回插值后的数据</span></span><br><span class="line">outputdata<span class="built_in">=</span>columndata;</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function pre5<span class="built_in">=</span>findPre5(index,columndata)</span><br><span class="line"><span class="comment">%% 在columndata中寻找给定下标index前面5个数值（非NaN），不足5个的按实际情况返回</span></span><br><span class="line"><span class="built_in">if</span> index<span class="built_in">&lt;=</span><span class="number">0</span></span><br><span class="line">    disp(<span class="string">&#x27;非法下标&#x27;</span>);</span><br><span class="line">    exit; </span><br><span class="line">end</span><br><span class="line">num<span class="built_in">=</span><span class="number">5</span>;</span><br><span class="line">pre5<span class="built_in">=</span>nan(<span class="number">1</span>,<span class="number">5</span>);</span><br><span class="line">for i<span class="built_in">=</span>index-<span class="number">1</span>:-<span class="number">1</span>:<span class="number">1</span></span><br><span class="line">    <span class="built_in">if</span> isnan(columndata(i))<span class="built_in">=</span><span class="built_in">=</span><span class="number">0</span>  <span class="comment">% 判断第i个值是否为NaN</span></span><br><span class="line">        pre5(num)<span class="built_in">=</span>columndata(i);</span><br><span class="line">        num<span class="built_in">=</span>num-<span class="number">1</span>;</span><br><span class="line">    end</span><br><span class="line">    <span class="built_in">if</span> num<span class="built_in">=</span><span class="built_in">=</span><span class="number">0</span> <span class="comment">% 只取前5个</span></span><br><span class="line">        break;</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">pre5<span class="built_in">=</span>pre5(~isnan(pre5)); <span class="comment">% 去除NaN的值</span></span><br><span class="line">end </span><br><span class="line"></span><br><span class="line">function last5<span class="built_in">=</span>findLast5(index,rows,columndata)</span><br><span class="line"><span class="comment">%% 在columndata中寻找给定下标index后面5个数值（非NaN），不足5个的按实际情况返回</span></span><br><span class="line"><span class="built_in">if</span> index<span class="built_in">&lt;=</span><span class="number">0</span> || index&gt;rows</span><br><span class="line">    disp(<span class="string">&#x27;非法下标&#x27;</span>);</span><br><span class="line">    exit; </span><br><span class="line">end</span><br><span class="line">num<span class="built_in">=</span><span class="number">0</span>;</span><br><span class="line">last5<span class="built_in">=</span>nan(<span class="number">1</span>,<span class="number">5</span>); <span class="comment">% 初始化</span></span><br><span class="line">for i<span class="built_in">=</span>index+<span class="number">1</span>:rows</span><br><span class="line">    <span class="built_in">if</span> isnan(columndata(i))<span class="built_in">=</span><span class="built_in">=</span><span class="number">0</span>  <span class="comment">% 判断第i个值是否为NaN</span></span><br><span class="line">        num<span class="built_in">=</span>num+<span class="number">1</span>;</span><br><span class="line">        last5(num)<span class="built_in">=</span>columndata(i); </span><br><span class="line">    end</span><br><span class="line">    <span class="built_in">if</span> num<span class="built_in">=</span><span class="built_in">=</span><span class="number">5</span> <span class="comment">% 只取后5个</span></span><br><span class="line">        break;</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">last5<span class="built_in">=</span>last5(~isnan(last5)); <span class="comment">% 去除NaN的值</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h4 id="被调用函数：polyinterp-m"><a href="#被调用函数：polyinterp-m" class="headerlink" title="被调用函数：polyinterp.m"></a>被调用函数：polyinterp.m</h4><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function v <span class="built_in">=</span> polyinterp(x,y,u)</span><br><span class="line"><span class="comment">%% 拉格朗日插值算法</span></span><br><span class="line"><span class="comment">% x：下标序列；</span></span><br><span class="line"><span class="comment">% y: 时间序列值；</span></span><br><span class="line"><span class="comment">% u：缺失值下标序列；</span></span><br><span class="line"></span><br><span class="line">n <span class="built_in">=</span> length(x);</span><br><span class="line">v <span class="built_in">=</span> zeros(size(u));</span><br><span class="line">for k <span class="built_in">=</span> <span class="number">1</span>:n</span><br><span class="line">    w <span class="built_in">=</span> ones(size(u));  </span><br><span class="line">    for j <span class="built_in">=</span> [<span class="number">1</span>:k-<span class="number">1</span> k+<span class="number">1</span>:n]</span><br><span class="line">        w <span class="built_in">=</span> (u-x(j))./(x(k)-x(j)).*w;</span><br><span class="line">    end</span><br><span class="line">    v <span class="built_in">=</span> v + w*y(k);</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="构建模型"><a href="#构建模型" class="headerlink" title="构建模型"></a>构建模型</h2><h3 id="数据集划分"><a href="#数据集划分" class="headerlink" title="数据集划分"></a>数据集划分</h3><h4 id="split-data-m"><a href="#split-data-m" class="headerlink" title="split_data.m"></a>split_data.m</h4><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 把数据分为两部分：训练数据、测试数据</span></span><br><span class="line">clear;</span><br><span class="line"><span class="comment">% 参数初始化</span></span><br><span class="line">datafile <span class="built_in">=</span> <span class="string">&#x27;../data/model.xls&#x27;</span>; <span class="comment">% 数据文件</span></span><br><span class="line">trainfile <span class="built_in">=</span> <span class="string">&#x27;../tmp/train_model.xls&#x27;</span> ; <span class="comment">% 训练数据文件</span></span><br><span class="line">testfile <span class="built_in">=</span> <span class="string">&#x27;../tmp/test_model.xls&#x27;</span> ; <span class="comment">% 测试数据文件</span></span><br><span class="line">proportion <span class="built_in">=</span><span class="number">0.8</span> ;  <span class="comment">% 设置训练数据比例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%% 数据分割</span></span><br><span class="line">[num,txt]<span class="built_in">=</span> xlsread(datafile);</span><br><span class="line"><span class="comment">% split2train_test 为自定义函数，把num变量数据（按行分布）分为两部分</span></span><br><span class="line"><span class="comment">% 其中训练数据集占比proportion</span></span><br><span class="line">[train,test] <span class="built_in">=</span> split2train_test(num,proportion);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 数据存储</span></span><br><span class="line">xlswrite(trainfile,[txt;num2cell(train)]); <span class="comment">% 写入训练数据</span></span><br><span class="line">xlswrite(testfile,[txt;num2cell(test)]); <span class="comment">% 写入测试数据</span></span><br><span class="line">disp(<span class="string">&#x27;数据分割完成！&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="被调用函数"><a href="#被调用函数" class="headerlink" title="被调用函数"></a>被调用函数</h4><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function [train, test] <span class="built_in">=</span> split2train_test( input,proportion )</span><br><span class="line"><span class="comment">%% 把输入数据随机分为训练和测试样本</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 输入参数：</span></span><br><span class="line"><span class="comment">% input : 原始矩阵,默认使用行作为一个样本</span></span><br><span class="line"><span class="comment">% proportion: 训练样本比重</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出参数：</span></span><br><span class="line"><span class="comment">% train:训练数据</span></span><br><span class="line"><span class="comment">% test：测试数据</span></span><br><span class="line"></span><br><span class="line">rows<span class="built_in">=</span>size(input,<span class="number">1</span>);</span><br><span class="line"><span class="comment">%split=cvpartition(1:rows,&#x27;holdout&#x27;,0.1);</span></span><br><span class="line">split<span class="built_in">=</span>randindex(rows,proportion);</span><br><span class="line">train<span class="built_in">=</span>input(split<span class="built_in">=</span><span class="built_in">=</span><span class="number">0</span>,:);</span><br><span class="line">test<span class="built_in">=</span>input(split<span class="built_in">=</span><span class="built_in">=</span><span class="number">1</span>,:);</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">function randindex<span class="built_in">=</span>randindex(n,proportion)</span><br><span class="line"><span class="comment">%% 返回给定长度n，以及比例的数据下标</span></span><br><span class="line">    randindex<span class="built_in">=</span>zeros(n,<span class="number">1</span>);</span><br><span class="line">    rng(<span class="string">&#x27;default&#x27;</span>); <span class="comment">% 固定随机化种子</span></span><br><span class="line">    for i<span class="built_in">=</span><span class="number">1</span>:n</span><br><span class="line">       <span class="built_in">if</span> rand(<span class="number">1</span>)&gt;proportion</span><br><span class="line">           randindex(i)<span class="built_in">=</span><span class="number">1</span>;</span><br><span class="line">       end</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="构建LM神经网络模型"><a href="#构建LM神经网络模型" class="headerlink" title="构建LM神经网络模型"></a>构建LM神经网络模型</h2><h3 id="construct-lm-model-m"><a href="#construct-lm-model-m" class="headerlink" title="construct_lm_model.m"></a>construct_lm_model.m</h3><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% LM 神经网络模型构建</span></span><br><span class="line">clear;</span><br><span class="line"><span class="comment">% 参数初始化</span></span><br><span class="line"> <span class="comment">% 训练数据</span></span><br><span class="line">trainfile <span class="built_in">=</span> <span class="string">&#x27;..\data\train_model.xls&#x27;</span>;</span><br><span class="line"><span class="comment">% 构建的神经网络模型存储路径</span></span><br><span class="line">netfile <span class="built_in">=</span> <span class="string">&#x27;..\tmp\net.mat&#x27;</span>; </span><br><span class="line"><span class="comment">% 训练数据模型输出文件</span></span><br><span class="line">trainoutputfile <span class="built_in">=</span> <span class="string">&#x27;..\tmp\lm_train_output_data.xls&#x27;</span> ; </span><br><span class="line"></span><br><span class="line"><span class="comment">%% 读取数据并转化</span></span><br><span class="line">[data,txt] <span class="built_in">=</span> xlsread(trainfile);</span><br><span class="line">input<span class="built_in">=</span>data(:,<span class="number">1</span>:end-<span class="number">1</span>);</span><br><span class="line">targetoutput<span class="built_in">=</span>data(:,end);</span><br><span class="line"><span class="comment">% 所有数据都加1,方便调用ind2vec</span></span><br><span class="line">targetoutput <span class="built_in">=</span> targetoutput+<span class="number">1</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">% 输入数据变换</span></span><br><span class="line">input<span class="built_in">=</span>input<span class="string">&#x27;;</span></span><br><span class="line"><span class="string">targetoutput=targetoutput&#x27;</span>;</span><br><span class="line">targetoutput<span class="built_in">=</span>full(ind2vec(targetoutput));</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 新建LM神经网络，并设置参数 </span></span><br><span class="line">net <span class="built_in">=</span> patternnet(<span class="number">10</span>,<span class="string">&#x27;trainlm&#x27;</span>);</span><br><span class="line">net.trainParam.epochs<span class="built_in">=</span><span class="number">1000</span>;</span><br><span class="line">net.trainParam.show<span class="built_in">=</span><span class="number">25</span>;</span><br><span class="line">net.trainParam.showCommandLine<span class="built_in">=</span><span class="number">0</span>;</span><br><span class="line">net.trainParam.showWindow<span class="built_in">=</span><span class="number">0</span>; </span><br><span class="line">net.trainParam.goal<span class="built_in">=</span><span class="number">0</span>;</span><br><span class="line">net.trainParam.time<span class="built_in">=</span>inf;</span><br><span class="line">net.trainParam.min_grad<span class="built_in">=</span><span class="number">1</span>e-<span class="number">6</span>;</span><br><span class="line">net.trainParam.max_fail<span class="built_in">=</span><span class="number">5</span>;</span><br><span class="line">net.performFcn<span class="built_in">=</span><span class="string">&#x27;mse&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 训练神经网络模型</span></span><br><span class="line">net<span class="built_in">=</span> train(net,input,targetoutput);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 使用训练好的神经网络测试原始数据</span></span><br><span class="line">output <span class="built_in">=</span> sim(net,input);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 画混淆矩阵图</span></span><br><span class="line">plotconfusion(targetoutput,output);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 数据写入到文件</span></span><br><span class="line">save(netfile,<span class="string">&#x27;net&#x27;</span>); <span class="comment">% 保存神经网络模型</span></span><br><span class="line"></span><br><span class="line">output <span class="built_in">=</span> vec2ind(output);</span><br><span class="line">output <span class="built_in">=</span> output<span class="string">&#x27;;</span></span><br><span class="line"><span class="string">xlswrite(trainoutputfile,[txt,&#x27;</span>模型输出<span class="string">&#x27;;num2cell([data,output-1])]);</span></span><br><span class="line"><span class="string">disp(&#x27;</span>LM神经网络模型构建完成！<span class="string">&#x27;);</span></span><br></pre></td></tr></table></figure>
+<h2 id="CART决策树模型"><a href="#CART决策树模型" class="headerlink" title="CART决策树模型"></a>CART决策树模型</h2><h3 id="construct-dt-model-m"><a href="#construct-dt-model-m" class="headerlink" title="construct_dt_model.m"></a>construct_dt_model.m</h3><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 构建CART决策树模型</span></span><br><span class="line"></span><br><span class="line">clear;</span><br><span class="line"><span class="comment">% 参数初始化</span></span><br><span class="line"><span class="comment">% 训练数据</span></span><br><span class="line">trainfile <span class="built_in">=</span> <span class="string">&#x27;..\data\train_model.xls&#x27;</span>; </span><br><span class="line"><span class="comment">% 构建的决策树模型存储路径</span></span><br><span class="line">treefile <span class="built_in">=</span> <span class="string">&#x27;..\tmp\tree.mat&#x27;</span>; </span><br><span class="line"><span class="comment">% 训练数据模型输出文件</span></span><br><span class="line">trainoutputfile <span class="built_in">=</span> <span class="string">&#x27;..\tmp\dt_train_output_data.xls&#x27;</span> ; </span><br><span class="line"></span><br><span class="line"><span class="comment">%% 读取数据，并提取输入输出</span></span><br><span class="line">[data,txt]<span class="built_in">=</span>xlsread(trainfile);</span><br><span class="line">input<span class="built_in">=</span>data(:,<span class="number">1</span>:end-<span class="number">1</span>);</span><br><span class="line">targetoutput<span class="built_in">=</span>data(:,end);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 使用训练数据构建决策树</span></span><br><span class="line">tree<span class="built_in">=</span> fitctree(input,targetoutput);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 使用构建好的决策树模型对原始数据进行测试</span></span><br><span class="line">output<span class="built_in">=</span>predict(tree,input);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 变换数据并画混淆矩阵图</span></span><br><span class="line">output<span class="built_in">=</span>output<span class="string">&#x27;;</span></span><br><span class="line"><span class="string">targetoutput=targetoutput&#x27;</span>;</span><br><span class="line">output<span class="built_in">=</span> full(ind2vec(output+<span class="number">1</span>));</span><br><span class="line">targetoutput <span class="built_in">=</span> full(ind2vec(targetoutput+<span class="number">1</span>));</span><br><span class="line">plotconfusion(targetoutput,output);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 保存数据</span></span><br><span class="line">save(treefile,<span class="string">&#x27;tree&#x27;</span>); <span class="comment">% 保存决策树模型</span></span><br><span class="line"></span><br><span class="line">output <span class="built_in">=</span> vec2ind(output);</span><br><span class="line">output <span class="built_in">=</span> output<span class="string">&#x27;;</span></span><br><span class="line"><span class="string">xlswrite(trainoutputfile,[txt,&#x27;</span>模型输出<span class="string">&#x27;;num2cell([data,output-1])]);</span></span><br><span class="line"><span class="string">disp(&#x27;</span>CART决策树模型构建完成！<span class="string">&#x27;);</span></span><br></pre></td></tr></table></figure>
+<h2 id="模型评价"><a href="#模型评价" class="headerlink" title="模型评价"></a>模型评价</h2><h3 id="test-lm-dt-model-m"><a href="#test-lm-dt-model-m" class="headerlink" title="test_lm_dt_model.m"></a>test_lm_dt_model.m</h3><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% LM神经网络和CART决策树模型测试</span></span><br><span class="line">clear;</span><br><span class="line"><span class="comment">% 参数初始化</span></span><br><span class="line">testfile <span class="built_in">=</span> <span class="string">&#x27;..\data\test_model.xls&#x27;</span>; <span class="comment">% 训练数据</span></span><br><span class="line">treefile <span class="built_in">=</span> <span class="string">&#x27;..\tmp\tree.mat&#x27;</span>; <span class="comment">% 决策树模型存储路径</span></span><br><span class="line">netfile <span class="built_in">=</span> <span class="string">&#x27;..\tmp\net.mat&#x27;</span>;   <span class="comment">% 神经网络模型存储路径</span></span><br><span class="line"><span class="comment">% 测试数据模型输出文件</span></span><br><span class="line">dttestoutputfile <span class="built_in">=</span> <span class="string">&#x27;..\tmp\dt_test_output_data.xls&#x27;</span> ; </span><br><span class="line"><span class="comment">% 测试数据模型输出文件</span></span><br><span class="line">lmtestoutputfile <span class="built_in">=</span> <span class="string">&#x27;..\tmp\lm_test_output_data.xls&#x27;</span> ; </span><br><span class="line"></span><br><span class="line">[data,txt] <span class="built_in">=</span> xlsread(testfile);</span><br><span class="line">input <span class="built_in">=</span> data(:,<span class="number">1</span>:end-<span class="number">1</span>);</span><br><span class="line">target <span class="built_in">=</span> data(:,end);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 使用构建好的决策树模型对原始数据进行测试</span></span><br><span class="line">load(treefile); <span class="comment">% 载入决策树模型</span></span><br><span class="line">output_tree<span class="built_in">=</span>predict(tree,input);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 决策树输出数据变换以及画ROC曲线图</span></span><br><span class="line">output_tree<span class="built_in">=</span> full(ind2vec(output_tree<span class="string">&#x27;+1));</span></span><br><span class="line"><span class="string">targetoutput = full(ind2vec(target&#x27;</span>+<span class="number">1</span>));</span><br><span class="line">figure(<span class="number">1</span>)</span><br><span class="line">plotroc(targetoutput,output_tree);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 使用构建好的神经网络模型对原始数据进行测试</span></span><br><span class="line">load(netfile);  <span class="comment">% 载入神经网络模型</span></span><br><span class="line">output_lm <span class="built_in">=</span> sim(net,input<span class="string">&#x27;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">% 测试数据数据变换以及画ROC曲线图 </span></span><br><span class="line"><span class="string">figure(2)</span></span><br><span class="line"><span class="string">plotroc(targetoutput,output_lm);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%% 写入数据</span></span><br><span class="line"><span class="string">output_lm=vec2ind(output_lm);</span></span><br><span class="line"><span class="string">output_lm = output_lm&#x27;</span>-<span class="number">1</span>;</span><br><span class="line">output_tree<span class="built_in">=</span>vec2ind(output_tree);</span><br><span class="line">output_tree<span class="built_in">=</span>output_tree<span class="string">&#x27;-1;</span></span><br><span class="line"><span class="string">xlswrite(lmtestoutputfile,[txt,&#x27;</span>模型输出<span class="string">&#x27;;num2cell([data,output_lm])]);</span></span><br><span class="line"><span class="string">xlswrite(dttestoutputfile,[txt,&#x27;</span>模型输出<span class="string">&#x27;;num2cell([data,output_tree])]);</span></span><br><span class="line"><span class="string">disp(&#x27;</span>CART决策树模型和LM神经网络模型测试完成！<span class="string">&#x27;);</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>《matlab数据分析与挖掘实战》 by 张良均、杨坦、肖刚、徐圣兵 等</p>
+<p>​</p>
+
+    </div>
+
+    
+    
+    
+     
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">---------------------------------------------------------</div>
+    
+</div>
+     <div class="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=7261872754&auto=0&height=430"></iframe>
+      </div>
+   </div>
+ 
+        <div class="reward-container">
+  <div>原创技术分享，您的支持将鼓励我继续创作</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt=" 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt=" 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://tiansztiansz.github.io/2022/01/31/matlab%E7%94%B5%E5%8A%9B%E4%BC%81%E4%B8%9A%E7%9A%84%E7%AA%83%E6%BC%8F%E7%94%B5%E7%94%A8%E6%88%B7%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB/" title="Matlab电力企业的窃漏电用户自动识别">https://tiansztiansz.github.io/2022/01/31/matlab电力企业的窃漏电用户自动识别/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/31/%E6%B0%B8%E4%B9%85%E5%8F%96%E6%B6%88word%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/" rel="prev" title="永久取消Word自动编号">
+      <i class="fa fa-chevron-left"></i> 永久取消Word自动编号
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/31/%E6%89%B9%E9%87%8F%E7%BB%99pdf%E7%94%B5%E5%AD%90%E4%B9%A6%E6%B7%BB%E5%8A%A0%E9%A1%B5%E7%A0%81%E4%B9%A6%E7%AD%BE/" rel="next" title="批量给Pdf电子书添加页码书签">
+      批量给Pdf电子书添加页码书签 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+
+
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A4%84%E7%90%86%EF%BC%88%E6%AD%A4%E5%A4%84%E4%B8%BA%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">缺失值处理（此处为拉格朗日插值）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%87%BD%E6%95%B0%EF%BC%9ALagrange-interpolation-m"><span class="nav-number">1.1.1.</span> <span class="nav-text">主函数：Lagrange_interpolation.m</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A2%AB%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%EF%BC%9Aployinterp-column-m"><span class="nav-number">1.1.2.</span> <span class="nav-text">被调用函数：ployinterp_column.m</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A2%AB%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%EF%BC%9Apolyinterp-m"><span class="nav-number">1.1.3.</span> <span class="nav-text">被调用函数：polyinterp.m</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">构建模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86"><span class="nav-number">2.1.</span> <span class="nav-text">数据集划分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#split-data-m"><span class="nav-number">2.1.1.</span> <span class="nav-text">split_data.m</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A2%AB%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.2.</span> <span class="nav-text">被调用函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BALM%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">构建LM神经网络模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#construct-lm-model-m"><span class="nav-number">3.1.</span> <span class="nav-text">construct_lm_model.m</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CART%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">CART决策树模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#construct-dt-model-m"><span class="nav-number">4.1.</span> <span class="nav-text">construct_dt_model.m</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7"><span class="nav-number">5.</span> <span class="nav-text">模型评价</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#test-lm-dt-model-m"><span class="nav-number">5.1.</span> <span class="nav-text">test_lm_dt_model.m</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpYW5zenRpYW5zeg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tiansztiansz"><i class=" fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjg2MDY4OTM=" title="bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;28606893"><i class=" fa-fw"></i>bilibili</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jaGluZXNlLmZyZWVjb2RlY2FtcC5vcmcvbGVhcm4v" title="https:&#x2F;&#x2F;chinese.freecodecamp.org&#x2F;learn&#x2F;">freeCodeCamp</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvL2FjY291bnRzL3NpZ251cA==" title="https:&#x2F;&#x2F;codepen.io&#x2F;accounts&#x2F;signup">CodePen</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04v" title="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;">mdn</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcv" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;">Vue.js</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC5kb2NzY2hpbmEub3JnLw==" title="https:&#x2F;&#x2F;react.docschina.org&#x2F;">React</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tYXJrZG93bi5jb20uY24v" title="https:&#x2F;&#x2F;markdown.com.cn&#x2F;">Markdown</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly90ZW5zb3JmbG93Lmdvb2dsZS5jbi9qcz9obD16aC1jbg==" title="https:&#x2F;&#x2F;tensorflow.google.cn&#x2F;js?hl&#x3D;zh-cn">TensorFlow.js</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cubm93Y29kZXIuY29tL2V4YW0vb2o/dGFiPSVFNSU4OSU4RCVFNyVBQiVBRiVFNyVBRiU4NyZ0b3BpY0lkPTI2MA==" title="https:&#x2F;&#x2F;www.nowcoder.com&#x2F;exam&#x2F;oj?tab&#x3D;%E5%89%8D%E7%AB%AF%E7%AF%87&amp;topicId&#x3D;260">牛客网</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jbi5iaW5nLmNvbS90cmFuc2xhdG9yP3JlZj1UVGhpcyZ0ZXh0PSZmcm9tPSZ0bz0mbWt0PXpoLUNO" title="https:&#x2F;&#x2F;cn.bing.com&#x2F;translator?ref&#x3D;TThis&amp;text&#x3D;&amp;from&#x3D;&amp;to&#x3D;&amp;mkt&#x3D;zh-CN">微软翻译</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vY24vZ2V0LXN0YXJ0ZWQvcXVpY2tzdGFydC9oZWxsby13b3JsZA==" title="https:&#x2F;&#x2F;docs.github.com&#x2F;cn&#x2F;get-started&#x2F;quickstart&#x2F;hello-world">GitHub Docs</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3d4b3Blbi9wbHVnaW5kZXZkb2M/YXBwaWQ9d3g2YWZlZDExOGQ5ZTgxZGY5JnRva2VuPSZsYW5nPXpoX0NOI3RlbnNvcmZsb3ctanMt" title="https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;wxopen&#x2F;plugindevdoc?appid&#x3D;wx6afed118d9e81df9&amp;token&#x3D;&amp;lang&#x3D;zh_CN#tensorflow-js-">tfjs微信小程序</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93dzIubWF0aHdvcmtzLmNuL2hlbHAvaW5kZXguaHRtbA==" title="https:&#x2F;&#x2F;ww2.mathworks.cn&#x2F;help&#x2F;index.html">matlab帮助</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93ZXJlYWQucXEuY29tLw==" title="https:&#x2F;&#x2F;weread.qq.com&#x2F;">微信读书</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jYW5pdXNlLmNvbS8=" title="https:&#x2F;&#x2F;caniuse.com&#x2F;">caniuse</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jLnJ1bm9vYi5jb20vZnJvbnQtZW5kLzU5Lw==" title="https:&#x2F;&#x2F;c.runoob.com&#x2F;front-end&#x2F;59&#x2F;">base64</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tYW4ubmlhb2dlLmNvbS8=" title="https:&#x2F;&#x2F;man.niaoge.com&#x2F;">鸟哥Linux命令大全</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuenlidWx1by5jb20vY29kZWVwL25vdGUvMTYzOTYyIzElRTUlQTYlODIlRTQlQkQlOTUlRTYlOEYlOTIlRTUlODUlQTUlRTUlODUlQUMlRTUlQkMlOEY=" title="https:&#x2F;&#x2F;www.zybuluo.com&#x2F;codeep&#x2F;note&#x2F;163962#1%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E5%85%AC%E5%BC%8F">Markdown数学公式</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWxvdmVwZGYuY29tL3poLWNu" title="https:&#x2F;&#x2F;www.ilovepdf.com&#x2F;zh-cn">ilovepdf</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly96ZWFsZG9jcy5vcmcv" title="https:&#x2F;&#x2F;zealdocs.org&#x2F;">Zeal</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3Rvb2xzL2luZGV4P25hbWU9Y3JlYXRlX3JlZw==" title="https:&#x2F;&#x2F;www.w3cschool.cn&#x2F;tools&#x2F;index?name&#x3D;create_reg">正则表达式</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宁静致远</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : ,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://tiansztiansz.github.io/2022/01/31/matlab%E7%94%B5%E5%8A%9B%E4%BC%81%E4%B8%9A%E7%9A%84%E7%AA%83%E6%BC%8F%E7%94%B5%E7%94%A8%E6%88%B7%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '9bb0ec741dd8e16027ed',
+      clientSecret: 'a106aa5fcacccdda2505b99961042b051d10e0c2',
+      repo        : 'tiansztiansz.github.io',
+      owner       : 'tiansztiansz',
+      admin       : ['tiansztiansz'],
+      id          : '89c44b85f7450ddcde5a964a2210200b',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

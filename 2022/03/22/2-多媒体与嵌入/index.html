@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+<script data-ad-client="ca-pub-3200468627061889" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3200468627061889"
+     crossorigin="anonymous"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tiansztiansz.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="2-HTML多媒体与嵌入">
+<meta property="og:url" content="https://tiansztiansz.github.io/2022/03/22/2-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8E%E5%B5%8C%E5%85%A5/index.html">
+<meta property="og:site_name" content="宁静致远的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-22T13:16:15.890Z">
+<meta property="article:modified_time" content="2022-03-24T10:06:08.892Z">
+<meta property="article:tag" content="HTML（构建Web）">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://tiansztiansz.github.io/2022/03/22/2-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8E%E5%B5%8C%E5%85%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2-HTML多媒体与嵌入 | 宁静致远的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宁静致远的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">65</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">160</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tiansztiansz.github.io/2022/03/22/2-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8E%E5%B5%8C%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宁静致远的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2-HTML多媒体与嵌入
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-22 21:16:15" itemprop="dateCreated datePublished" datetime="2022-03-22T21:16:15+08:00">2022-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-24 18:06:08" itemprop="dateModified" datetime="2022-03-24T18:06:08+08:00">2022-03-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MDN/" itemprop="url" rel="index"><span itemprop="name">MDN</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="HTML-中的图片"><a href="#HTML-中的图片" class="headerlink" title="HTML 中的图片"></a><span id="more"></span>HTML 中的图片</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9IVE1ML011bHRpbWVkaWFfYW5kX2VtYmVkZGluZy9JbWFnZXNfaW5fSFRNTA==">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="怎么将一幅图片放到网页上"><a href="#怎么将一幅图片放到网页上" class="headerlink" title="怎么将一幅图片放到网页上"></a>怎么将一幅图片放到网页上</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;dinosaur.jpg&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    推荐将图片都放置在 images 文件夹中</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/dinosaur.jpg&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    使用绝对路径;</span></span><br><span class="line"><span class="comment">    但是这种方式是不被推荐的，这样做只会使浏览器做更多的工作，</span></span><br><span class="line"><span class="comment">    例如重新通过 DNS 再去寻找 IP 地址。</span></span><br><span class="line"><span class="comment">    通常我们都会把图片和 HTML 放在同一个服务器上</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.example.com/images/dinosaur.jpg&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="备选文本"><a href="#备选文本" class="headerlink" title="备选文本"></a>备选文本</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    alt 的值是对图片的文字描述，用于在图片无法显示或不能被看到的情况</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/dinosaur.jpg&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">alt</span>=<span class="string">&quot;The head and torso of a dinosaur skeleton;</span></span></span><br><span class="line"><span class="string"><span class="tag">          it has a large head with long sharp teeth&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="宽度和高度"><a href="#宽度和高度" class="headerlink" title="宽度和高度"></a>宽度和高度</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    这里只是介绍了在 HTML 中修改宽高的方法，但建议在 CSS 中修改图片的宽高</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/dinosaur.jpg&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">alt</span>=<span class="string">&quot;一只恐龙头部和躯干的骨架，它有一个巨大的头，长着锋利的牙齿。&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">width</span>=<span class="string">&quot;400&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">height</span>=<span class="string">&quot;341&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Image-titles-图片标题"><a href="#Image-titles-图片标题" class="headerlink" title="Image titles 图片标题"></a>Image titles 图片标题</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    鼠标停留在图片上时，会给我们一个鼠标悬停提示，看起来就像链接标题</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/dinosaur.jpg&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">alt</span>=<span class="string">&quot;一只恐龙头部和躯干的骨架，它有一个巨大的头，长着锋利的牙齿。&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">width</span>=<span class="string">&quot;400&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">height</span>=<span class="string">&quot;341&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">title</span>=<span class="string">&quot;A T-Rex on display in the Manchester University Museum&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    然而并不推荐使用 title 属性，</span></span><br><span class="line"><span class="comment">    因为它无法为只有键盘的用户提供服务，</span></span><br><span class="line"><span class="comment">    以及易访问性问题等</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="为图片搭配说明文字"><a href="#为图片搭配说明文字" class="headerlink" title="为图片搭配说明文字"></a>为图片搭配说明文字</h3><p><code>&lt;figure&gt;</code> 也可以是几张图片、一段代码、音视频、方程、表格或别的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">alt</span>=<span class="string">&quot;一只恐龙头部和躯干的骨架，它有一个巨大的头，长着锋利的牙齿。&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">width</span>=<span class="string">&quot;400&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">height</span>=<span class="string">&quot;341&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span>曼彻斯特大学博物馆展出的一只霸王龙的化石<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    注意：从无障碍的角度来说，说明文字和 alt 文本扮演着不同的角色。</span></span><br><span class="line"><span class="comment">    看得见图片的人们同样可以受益于说明文字，而 alt 文字只有在图片无法显示时才这样。 </span></span><br><span class="line"><span class="comment">    所以，说明文字和 alt 的内容不应该一样，因为当图片无法显示时，它们会同时出现。</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS-背景图片"><a href="#CSS-背景图片" class="headerlink" title="CSS 背景图片"></a>CSS 背景图片</h3><p>比如，为页面中的所有段落设置一个背景图片，你可以这样做:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&quot;images/dinosaur.jpg&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果图像有意义，则应使用HTML图像。 如果图像纯粹是装饰，则应使用CSS背景图片。</p>
+<h2 id="视频和音频"><a href="#视频和音频" class="headerlink" title="视频和音频"></a>视频和音频</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9IVE1ML011bHRpbWVkaWFfYW5kX2VtYmVkZGluZy9WaWRlb19hbmRfYXVkaW9fY29udGVudA==">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Web-中的视频和音频"><a href="#Web-中的视频和音频" class="headerlink" title="Web 中的视频和音频"></a>Web 中的视频和音频</h3><h4 id="lt-video-gt-元素"><a href="#lt-video-gt-元素" class="headerlink" title="&lt;video&gt;元素"></a><code>&lt;video&gt;</code>元素</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    &lt;video&gt; 嵌入一段视频；</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    src 属性指向你想要嵌入网页当中的视频资源；</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    使用 controls 来包含浏览器提供的控件界面，</span></span><br><span class="line"><span class="comment">    同时你也可以使用合适的 JavaScript API 创建自己的界面。</span></span><br><span class="line"><span class="comment">    界面中至少要包含开始、停止以及调整音量的功能；</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    &lt;video&gt; 标签内的内容：这个叫做后备内容</span></span><br><span class="line"><span class="comment">     — 当浏览器不支持 &lt;video&gt; 标签的时候，就会显示这段内容</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;rabbit320.webm&quot;</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>你的浏览器不支持 HTML5 视频。可点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;rabbit320.mp4&quot;</span>&gt;</span>此链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>观看<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多个播放源"><a href="#多个播放源" class="headerlink" title="多个播放源"></a>多个播放源</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;rabbit320.mp4&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/mp4&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;rabbit320.webm&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/webm&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>你的浏览器不支持 HTML5 视频。可点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;rabbit320.mp4&quot;</span>&gt;</span>此链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>观看<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="其他-lt-video-gt-特性"><a href="#其他-lt-video-gt-特性" class="headerlink" title="其他 &lt;video&gt; 特性"></a>其他 <code>&lt;video&gt;</code> 特性</h4><p>HTML5 <code>&lt;video&gt;</code> 上的特性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">     width 和 height</span></span><br><span class="line"><span class="comment">    你可以用属性控制视频的尺寸，也可以用 CSS 来控制视频尺寸。 </span></span><br><span class="line"><span class="comment">    无论使用哪种方式，视频都会保持它原始的长宽比 — 也叫做纵横比。</span></span><br><span class="line"><span class="comment">    如果你设置的尺寸没有保持视频原始长宽比，那么视频边框将会拉伸，</span></span><br><span class="line"><span class="comment">    而未被视频内容填充的部分（即容器没有被视频填充完），将会显示默认的背景颜色</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">     autoplay</span></span><br><span class="line"><span class="comment">    这个属性会使音频和视频内容立即播放，即使页面的其他部分还没有加载完全。</span></span><br><span class="line"><span class="comment">    建议不要应用这个属性在你的网站上，因为用户们会比较反感自动播放的媒体文件</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">     loop</span></span><br><span class="line"><span class="comment">    这个属性可以让音频或者视频文件循环播放。同样不建议使用，除非有必要</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">     muted</span></span><br><span class="line"><span class="comment">    这个属性会导致媒体播放时，默认关闭声音</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">     poster</span></span><br><span class="line"><span class="comment">    这个属性指向了一个图像的URL，这个图像会在视频播放前显示。</span></span><br><span class="line"><span class="comment">    通常用于粗略的预览或者广告</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">     preload</span></span><br><span class="line"><span class="comment">    这个属性被用来缓冲较大的文件，有3个值可选：</span></span><br><span class="line"><span class="comment">        &quot;none&quot; ：不缓冲</span></span><br><span class="line"><span class="comment">        &quot;auto&quot; ：页面加载后缓存媒体文件</span></span><br><span class="line"><span class="comment">        &quot;metadata&quot; ：仅缓冲文件的元数据</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span> <span class="attr">width</span>=<span class="string">&quot;400&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">autoplay</span> <span class="attr">loop</span> <span class="attr">muted</span></span></span><br><span class="line"><span class="tag">       <span class="attr">poster</span>=<span class="string">&quot;poster.png&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;rabbit320.mp4&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/mp4&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;rabbit320.webm&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/webm&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>你的浏览器不支持 HTML5 视频。可点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;rabbit320.mp4&quot;</span>&gt;</span>此链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>观看<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="lt-audio-gt-标签"><a href="#lt-audio-gt-标签" class="headerlink" title="&lt;audio&gt; 标签"></a><code>&lt;audio&gt;</code> 标签</h4><p><code>&lt;audio&gt;</code> 标签与 <code>&lt;video&gt;</code> 标签的使用方式几乎完全相同，有一些细微的差别比如控制界面不同</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    &lt;audio&gt; 标签不支持 width/height 属性 — 由于其并没有视觉部件，</span></span><br><span class="line"><span class="comment">      也就没有可以设置 width/height 的内容。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    同时也不支持 poster 属性 — 同样，没有视觉部件</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    除此之外，&lt;audio&gt; 标签支持所有 &lt;video&gt; 标签拥有的特性</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;viper.mp3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mp3&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;viper.ogg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/ogg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>你的浏览器不支持 HTML5 音频，可点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;viper.mp3&quot;</span>&gt;</span>此链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>收听。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="重新播放媒体"><a href="#重新播放媒体" class="headerlink" title="重新播放媒体"></a>重新播放媒体</h4><p>可以在 Javascript 中调用 load() 方法来重置媒体。如果有多个由 <code>&lt;source&gt;</code> 标签指定的媒体来源，浏览器会从选择媒体来源开始重新加载媒体</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mediaElem = <span class="built_in">document</span>.getElementById(<span class="string">&quot;my-media-element&quot;</span>);</span><br><span class="line">mediaElem.load();</span><br></pre></td></tr></table></figure>
+
+<h4 id="音轨增删事件"><a href="#音轨增删事件" class="headerlink" title="音轨增删事件"></a>音轨增删事件</h4><p>当音轨被添加或删除时，可以通过监听相关事件来侦测到</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mediaElem = <span class="built_in">document</span>.querySelector(<span class="string">&quot;video&quot;</span>);</span><br><span class="line">mediaElem.audioTracks.onaddtrack = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  audioTrackAdded(event.track);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示音轨文本"><a href="#显示音轨文本" class="headerlink" title="显示音轨文本"></a>显示音轨文本</h3><p><code>.vtt</code> 文件是一个文本文件，是用文本记录下音频的内容，具体使用如下：</p>
+<p>1、以 .vtt 后缀名保存文件。</p>
+<p>2、用 <code>&lt;track&gt;</code> 标签链接 .vtt 文件， <code>&lt;track&gt;</code> 标签需放在 <code>&lt;audio&gt;</code> 或 <code>&lt;video&gt;</code> 标签当中，同时需要放在所有 <code>&lt;source&gt;</code> 标签之后。</p>
+<p>3、使用 kind 属性来指明是哪一种类型，如 subtitles 、 captions 、 descriptions。</p>
+<p>4、然后，使用 srclang 来告诉浏览器你是用什么语言来编写的 subtitles</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">kind 的属性值：</span></span><br><span class="line"><span class="comment">     subtitles</span></span><br><span class="line"><span class="comment">    通过添加翻译字幕，来帮助那些听不懂外国语言的人们理解音频当中的内容。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">     captions</span></span><br><span class="line"><span class="comment">    同步翻译对白，或是描述一些有重要信息的声音，来帮助那些不能听音频的人们理解音频中的内容。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">     timed descriptions</span></span><br><span class="line"><span class="comment">    将文字转换为音频，用于服务那些有视觉障碍的人。</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;example.mp4&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/mp4&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;example.webm&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/webm&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">&quot;subtitles&quot;</span> <span class="attr">src</span>=<span class="string">&quot;subtitles_en.vtt&quot;</span> <span class="attr">srclang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>.vtt</code> 文件格式如下：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">WEBVTT</span><br><span class="line"></span><br><span class="line"><span class="number">00:00.000</span> --&gt; <span class="number">00:04.000</span></span><br><span class="line">别喝液氮</span><br><span class="line"></span><br><span class="line"><span class="number">00:05.000</span> --&gt; <span class="number">00:09.000</span></span><br><span class="line">- 它会刺穿你的胃</span><br><span class="line">- 你可能会因此挂掉</span><br></pre></td></tr></table></figure>
+<p>文件解读：</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">00</span>:<span class="number">00.000</span> --&gt; <span class="number">00</span>:<span class="number">04.000</span> 中的 <span class="number">00</span> 和 <span class="number">04</span> 表示的是秒数</span><br><span class="line"></span><br><span class="line">后面跟着的字会根据格式换行 </span><br><span class="line"></span><br><span class="line">多行文本前面加 `-` 只是为了方面阅读</span><br></pre></td></tr></table></figure>
+<h2 id="从对象到iframe-——-其它嵌入技术"><a href="#从对象到iframe-——-其它嵌入技术" class="headerlink" title="从对象到iframe —— 其它嵌入技术"></a>从对象到iframe —— 其它嵌入技术</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9IVE1ML011bHRpbWVkaWFfYW5kX2VtYmVkZGluZy9PdGhlcl9lbWJlZGRpbmdfdGVjaG5vbG9naWVz">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="嵌入的简史"><a href="#嵌入的简史" class="headerlink" title="嵌入的简史"></a>嵌入的简史</h3><p>发展历程如下：</p>
+<p>1、使用框架创建网站 — 网站的一小部分存储于单独的HTML页面中（这样有利于下载速度 —尤其是在那时网络连接速度太慢的情况下更为明显。然而，这些技术有很多问题，随着网络速度越来越快，这些技术带来的问题远超过它们带来的积极因素）</p>
+<p>2、插件技术变得非常受欢迎，例如Java Applet和Flash — 这些技术允许网络开发者将丰富的内容嵌入到网页中，例如视频和动画等，这些内容不能通过HTML单独实现。嵌入这些技术是通过诸如<code>&lt;object&gt;</code>和较少使用<code>&lt;embed&gt;</code>的元素来实现的，当时它们非常有用。但由于许多问题，包括可访问性、安全性、文件大小等，它们已经过时了</p>
+<p>3、最后，<code>&lt;iframe&gt;</code>元素出现了（连同其他嵌入内容的方式，如<code>&lt;canvas&gt;</code>，<code>&lt;video&gt;</code>等），它提供了一种将整个web页嵌入到另一个网页的方法，看起来就像那个web页是另一个网页的一个<code>&lt;img&gt;</code>或其他元素一样</p>
+<h3 id="嵌入类型的使用"><a href="#嵌入类型的使用" class="headerlink" title="嵌入类型的使用"></a>嵌入类型的使用</h3><p>Youtube让我们通过<code>&lt;iframe&gt;</code>在页面中嵌入喜欢的视频（对于其它视频网站同理，测试发现bilibili不行）</p>
+<ol>
+<li>首先，去Youtube找一个喜欢的视频</li>
+
+<li>在视频下方，您会看到一个共享按钮 - 点击查看共享选项</li>
+
+<li>选择“ 嵌入”选项卡，您将得到一些 iframe 代码 - 复制一下，然后粘贴到项目中</li>
+</ol>
+
+<p>此外，还可以试试在示例中嵌入<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9tYXBzLw==">Google地图<i class="fa fa-external-link-alt"></i></span> (需要挂代理)</p>
+<ol>
+  <li>去Google地图找一个喜欢的地图。</li>
+  
+  <li>点击UI左上角的“汉堡菜单”（三条水平线）。</li>
+  
+  <li>选择共享或嵌入地图选项。</li>
+  
+  <li>选择嵌入地图选项，这将给你一些 iframe 代码 - 复制一下。然后粘贴到自己的项目中</li>
+</ol>
+
+<h3 id="iframe详解"><a href="#iframe详解" class="headerlink" title="iframe详解"></a>iframe详解</h3><p>将第三方内容嵌入网站，可能无法直接控制，但我们不希望实现自己的版本 - 例如来自在线视频提供商的视频，Disqus等评论系统，在线地图提供商，广告横幅等。本课程使用的 实时可编辑示例 就是使用<code>&lt;iframe&gt;</code> 实现的。关于<code>&lt;iframe&gt;</code>有一些严重的安全隐患需要考虑，但这并不意味着你不应该在你的网站上使用它们 — 它只需要一些知识和仔细地思考</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">allowfullscreen</span></span><br><span class="line"><span class="comment">    如果设置，&lt;iframe&gt;则可以通过全屏API设置为全屏模式（稍微超出本文的范围）。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">frameborder</span></span><br><span class="line"><span class="comment">    如果设置为1，则会告诉浏览器在此框架和其他框架之间绘制边框，这是默认行为。</span></span><br><span class="line"><span class="comment">    0删除边框。不推荐这样设置，因为在CSS中可以更好地实现相同的效果。border: none;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">src</span></span><br><span class="line"><span class="comment">    该属性与&lt;video&gt;/&lt;img&gt;一样包含指向要嵌入文档的URL路径。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">width 和 height</span></span><br><span class="line"><span class="comment">    这些属性指定您想要的iframe的宽度和高度。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">sandbox</span></span><br><span class="line"><span class="comment">    该属性需要在已经支持其他&lt;iframe&gt;功能（例如IE 10及更高版本）</span></span><br><span class="line"><span class="comment">      但稍微更现代的浏览器上才能工作，该属性可以提高安全性设置; </span></span><br><span class="line"><span class="comment">      </span></span><br><span class="line"><span class="comment">备选内容</span></span><br><span class="line"><span class="comment">    与&lt;video&gt;等其他类似元素相同，您可以在&lt;iframe&gt;&lt;/iframe&gt;标签之间包含备选内容，</span></span><br><span class="line"><span class="comment">    如果浏览器不支持&lt;iframe&gt;，将会显示备选内容，这种情况下，</span></span><br><span class="line"><span class="comment">    我们已经添加了一个到该页面的链接。现在您几乎不可能遇到任何不支持&lt;iframe&gt;的浏览器。</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;https://developer.mozilla.org/en-US/docs/Glossary&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">allowfullscreen</span> <span class="attr">sandbox</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://developer.mozilla.org/en-US/docs/Glossary&quot;</span>&gt;</span></span><br><span class="line">    Fallback link for browsers that don&#x27;t support iframes</span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意：为了提高速度，在主内容完成加载后，使用JavaScript设置iframe的src属性是个好主意。这使您的页面可以更快地被使用，并减少您的官方页面加载时间（重要的SEO指标）</p>
+<h4 id="安全隐患"><a href="#安全隐患" class="headerlink" title="安全隐患"></a>安全隐患</h4><p>在Firefox中，您会被告知：“X-Frame-Options拒绝加载<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9HbG9zc2FyeSVFMiU4MCU5RCVFMyU4MCU4MiVFOCVCRiU5OSVFNiU5OCVBRiVFNSU5QiVBMCVFNCVCOCVCQSVFNiU5RSU4NCVFNSVCQiVCQU1ETiVFNyU5QSU4NCVFNSVCQyU4MCVFNSU4RiU5MSVFNCVCQSVCQSVFNSU5MSU5OCVFNSVCNyVCMiVFNyVCQiU4RiVFNSU5QyVBOCVFNyVCRCU5MSVFNyVBQiU5OSVFOSVBMSVCNSVFOSU5RCVBMiVFNyU5QSU4NCVFNiU5QyU4RCVFNSU4QSVBMSVFNSU5OSVBOCVFNCVCOCU4QSVFOCVBRSVCRSVFNyVCRCVBRSVFNCVCQSU4NiVFNCVCOCU4MCVFNCVCOCVBQSVFNCVCOCU4RCVFNSU4NSU4MSVFOCVBRSVCOCVFOCVBMiVBQiVFNSVCNSU4QyVFNSU4NSVBNSVFNSU4OCVCMCU2MA==">https://developer.mozilla.org/en-US/docs/Glossary”。这是因为构建MDN的开发人员已经在网站页面的服务器上设置了一个不允许被嵌入到`<i class="fa fa-external-link-alt"></i></span><iframe>`的设置（请参阅配置CSP指令）这是有必要的 — 整个MDN页面被嵌入在其他页面中没有多大意义，除非您想要将其嵌入到您的网站上并将其声称为自己的内容，或尝试通过单击劫持来窃取数据，这都是非常糟糕的事情。此外，如果每个人都这样做，所有额外的带宽将花费Mozilla很多资金</p>
+<h5 id="只有在必要时嵌入"><a href="#只有在必要时嵌入" class="headerlink" title="只有在必要时嵌入"></a>只有在必要时嵌入</h5><p>网络安全的一个很好的经验法则是“你怎么谨慎都不为过，如果你决定要做这件事，多检查一遍；如果是别人做的，在被证明是安全的之前，都假设这是危险的。”</p>
+<p>除了安全问题，你还应该意识到知识产权问题。无论在线内容还是离线内容，绝大部分内容都是有版权的</p>
+<h5 id="使用-HTTPS"><a href="#使用-HTTPS" class="headerlink" title="使用 HTTPS"></a>使用 HTTPS</h5><p>HTTPS是HTTP的加密版本。您应该尽可能使用HTTPS为您的网站提供服务：</p>
+<ol>
+  <li>HTTPS减少了远程内容在传输过程中被篡改的机会</li>
+  <li>HTTPS防止嵌入式内容访问您的父文档中的内容，反之亦然</li>
+</ol>
+
+<p>使用HTTPS需要一个安全证书，这可能是昂贵的（尽管<span class="exturl" data-url="aHR0cHM6Ly9sZXRzZW5jcnlwdC5vcmcv">Let’s Encrypt<i class="fa fa-external-link-alt"></i></span>让这件事变得更容易），如果你没有，可以使用HTTP来为你的父文档提供服务。但是，由于HTTPS的第二个好处，无论成本如何，您绝对不能使用HTTP嵌入第三方内容</p>
+<h5 id="始终使用sandbox属性"><a href="#始终使用sandbox属性" class="headerlink" title="始终使用sandbox属性"></a>始终使用sandbox属性</h5><p>一个允许包含在其里的代码以适当的方式执行或者用于测试，但不能对其他代码库（意外或恶意）造成任何损害的容器称为沙盒</p>
+<p>如果绝对需要，您可以逐个添加权限（sandbox=””属性值内） - 请参阅sandbox所有可用选项的参考条目。其中重要的一点是，你永远不应该同时添加<code>allow-scripts</code>和<code>allow-same-origin</code>到你的<code>sandbox</code>属性中-在这种情况下，嵌入式内容可以绕过阻止站点执行脚本的同源安全策略，并使用JavaScript完全关闭沙盒</p>
+<h5 id="配置CSP指令"><a href="#配置CSP指令" class="headerlink" title="配置CSP指令"></a>配置CSP指令</h5><p>CSP代表内容安全策略，它提供一组HTTP标头（由web服务器发送时与元数据一起发送的元数据），旨在提高HTML文档的安全性。在<code>&lt;</code>iframe&gt;<code>安全性方面，您可以将服务器配置为发送适当的</code>X-Frame-Options`  标题。这样做可以防止其他网站在其网页中嵌入您的内容（这将导致点击和一系列其他攻击）</p>
+<h3 id="lt-embed-gt-和-lt-object-gt-元素"><a href="#lt-embed-gt-和-lt-object-gt-元素" class="headerlink" title="&lt;embed&gt;和&lt;object&gt;元素"></a><code>&lt;embed&gt;</code>和<code>&lt;object&gt;</code>元素</h3><p><code>&lt;embed&gt;</code>和<code>&lt;object&gt;</code>元素的功能不同于<code>&lt;iframe&gt;</code>—— 这些元素是用来嵌入多种类型的外部内容的通用嵌入工具，其中包括像Java小程序和Flash，PDF（可在浏览器中显示为一个PDF插件）这样的插件技术，甚至像视频，SVG和图像的内容</p>
+<p>注意：插件是一种对浏览器原生无法读取的内容提供访问权限的软件。</p>
+<p>提及它们主要是为了以防您在某些情况下遇到问题，比如内部网或企业项目等</p>
+<p>下面是一个使用该<code>&lt;embed&gt;</code>元素嵌入Flash影片的示例:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">&quot;whoosh.swf&quot;</span> <span class="attr">quality</span>=<span class="string">&quot;medium&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">bgcolor</span>=<span class="string">&quot;#ffffff&quot;</span> <span class="attr">width</span>=<span class="string">&quot;550&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">name</span>=<span class="string">&quot;whoosh&quot;</span> <span class="attr">align</span>=<span class="string">&quot;middle&quot;</span> <span class="attr">allowScriptAccess</span>=<span class="string">&quot;sameDomain&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">allowFullScreen</span>=<span class="string">&quot;false&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/x-shockwave-flash&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">pluginspage</span>=<span class="string">&quot;http://www.macromedia.com/go/getflashplayer&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一个<code>&lt;object&gt;</code>将PDF嵌入一个页面的例子:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;mypdf.pdf&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/pdf&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">width</span>=<span class="string">&quot;800&quot;</span> <span class="attr">height</span>=<span class="string">&quot;1200&quot;</span> <span class="attr">typemustmatch</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>You don&#x27;t have a PDF plugin, but you can <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;myfile.pdf&quot;</span>&gt;</span>download the PDF file.<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们最好是用链接指向pdf，而不是将其嵌入到网页中，以便它们可以在单独的页面上被下载或被阅读</p>
+<h4 id="针对插件的情况"><a href="#针对插件的情况" class="headerlink" title="针对插件的情况"></a>针对插件的情况</h4><p>如果您需要交互性，HTML和JavaScript可以轻松地为您完成工作，而不需要Java小程序或过时的ActiveX / BHO技术。您可以使用HTML5视频来满足媒体需求，矢量图形SVG，以及复杂图像和动画画布。对于工作Adobe Flash极少是正确的工具，除了专门的游戏和商业应用。对于ActiveX，即使微软的Edge浏览器也不再支持。</p>
+<h2 id="在网页中添加矢量图形"><a href="#在网页中添加矢量图形" class="headerlink" title="在网页中添加矢量图形"></a>在网页中添加矢量图形</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9IVE1ML011bHRpbWVkaWFfYW5kX2VtYmVkZGluZy9BZGRpbmdfdmVjdG9yX2dyYXBoaWNzX3RvX3RoZV9XZWI=">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="什么是矢量图形"><a href="#什么是矢量图形" class="headerlink" title="什么是矢量图形"></a>什么是矢量图形</h3><p>1、位图使用像素网格来定义 — 一个位图文件精确得包含了每个像素的位置和它的色彩信息。流行的位图格式包括 Bitmap (.bmp), PNG (.png), JPEG (.jpg), and GIF (.gif.)</p>
+<p>2、矢量图使用算法来定义 — 一个矢量图文件包含了图形和路径的定义，电脑可以根据这些定义计算出当它们在屏幕上渲染时应该呈现的样子。 SVG 格式可以让我们创造用于 Web 的精彩的矢量图形</p>
+<p>当你放大网页的时候，区别就会变得明显起来 — 随着你的放大，PNG 图片变得像素化了，因为它存储是每个像素的颜色和位置信息 — 当它被放大时，每个像素就被放大以填满屏幕上更多的像素，所以图像就会开始变得马赛克感觉。矢量图像看起来仍然效果很好且清晰，因为无论它的尺寸如何，都使用算法来计算出图像的形状，仅仅是根据放大的倍数来调整算法中的值。</p>
+<p>此外，矢量图形相较于同样的位图，通常拥有更小的体积，因为它们仅需储存少量的算法，而不是逐个储存每个像素的信息。</p>
+<h3 id="SVG是什么"><a href="#SVG是什么" class="headerlink" title="SVG是什么"></a>SVG是什么</h3><p>SVG 是用于描述矢量图像的XML语言。 它基本上是像HTML一样的标记，只是你有许多不同的元素来定义要显示在图像中的形状，以及要应用于这些形状的效果。 SVG用于标记图形，而不是内容。 非常简单，你有一些元素来创建简单图形，如<code>&lt;circle&gt;</code> 和<code>&lt;rect&gt;</code>。更高级的SVG功能包括 <code>&lt;feColorMatrix&gt;</code>（使用变换矩阵转换颜色）<code>&lt;animate&gt;</code> （矢量图形的动画部分）和 <code>&lt;mask&gt;</code>（在图像顶部应用模板）</p>
+<p>以下代码创建一个圆和一个矩形：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">baseProfile</span>=<span class="string">&quot;full&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;black&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;150&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;100&quot;</span> <span class="attr">r</span>=<span class="string">&quot;90&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;blue&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是对于复杂的图像，这很快就开始变得非常困难。 为了创建SVG图像，大多数人使用矢量图形编辑器，如 Inkscape 或 Illustrator。 这些软件包允许您使用各种图形工具创建各种插图，并创建照片的近似值（例如Inkscape的跟踪位图功能）</p>
+<p>VG除了迄今为止所描述的以外还有其他优点：</p>
+<ol>
+  <li>矢量图像中的文本仍然可访问（这也有利于 SEO）</li>
+  <li>SVG 可以很好地适应样式/脚本，因为图像的每个组件都是可以通过CSS或通过JavaScript编写的样式的元素</li>
+</ol>
+那么为什么会有人想使用光栅图形而不是SVG？ 其实 SVG 确实有一些缺点：
+
+<ol>
+  <li>SVG非常容易变得复杂，这意味着文件大小会增加; 复杂的SVG也会在浏览器中占用很长的处理时间</li>
+  <li>SVG可能比栅格图像更难创建，具体取决于您尝试创建哪种图像</li>
+  <li>旧版浏览器不支持SVG，因此如果您需要在网站上支持旧版本的 IE，则可能不适合（SVG从IE9开始得到支持）</li>
+</ol>
+
+<p>由于上述原因，光栅图形更适合照片那样复杂精密的图像。</p>
+<h3 id="将SVG添加到页面"><a href="#将SVG添加到页面" class="headerlink" title="将SVG添加到页面"></a>将SVG添加到页面</h3><h4 id="快捷方式：-lt-img-gt"><a href="#快捷方式：-lt-img-gt" class="headerlink" title="快捷方式：&lt;img&gt;"></a>快捷方式：<code>&lt;img&gt;</code></h4><p>要通过 <code>&lt;img&gt;</code>元素嵌入SVG，你只需要按照预期的方式在 src 属性中引用它。你将需要一个height或width属性（或者如果您的SVG没有固有的宽高比）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">&quot;equilateral.svg&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">alt</span>=<span class="string">&quot;triangle with all three sides equal&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">height</span>=<span class="string">&quot;87px&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">&quot;100px&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>该方法的优缺点：</p>
+<p>优点</p>
+<ol>
+  <li>快速，熟悉的图像语法与alt属性中提供的内置文本等效。</li>
+  <li>可以通过在 a元素 嵌套 img元素，使图像轻松地成为超链接。</li>
+</ol>
+
+<p>缺点</p>
+<ol>
+  <li>无法使用JavaScript操作图像。</li>
+  <li>如果要使用CSS控制SVG内容，则必须在SVG代码中包含内联CSS样式。 （从SVG文件调用的外部样式表不起作用）</li>
+  <li>不能用CSS伪类来重设图像样式（如:focus）</li>
+</ol>
+
+<h4 id="跨浏览器支持"><a href="#跨浏览器支持" class="headerlink" title="跨浏览器支持"></a>跨浏览器支持</h4><p>对于不支持SVG（IE 8及更低版本，Android 2.3及更低版本）的浏览器，您可以从src属性引用PNG或JPG，并使用<code>srcset</code>属性 只有最近的浏览器才能识别）来引用SVG。 在这种情况下，仅支持浏览器将加载SVG - 较旧的浏览器将加载PNG：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;equilateral.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;triangle with equal sides&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;equilateral.svg&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>还可以使用SVG作为CSS背景图像，如下所示。 在下面的代码中，旧版浏览器会坚持他们理解的PNG，而较新的浏览器将加载SVG：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">&quot;fallback.png&quot;</span>) no-repeat center;</span><br><span class="line"><span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&quot;image.svg&quot;</span>);</span><br><span class="line"><span class="attribute">background-size</span>: contain;</span><br></pre></td></tr></table></figure>
+<p>像上面描述的<code>&lt;img&gt;</code>方法一样，使用 CSS 背景图像插入SVG 意味着它不能被 JavaScript 操作，并且也受到相同的 CSS 限制</p>
+<h4 id="在HTML中引入SVG代码"><a href="#在HTML中引入SVG代码" class="headerlink" title="在HTML中引入SVG代码"></a>在HTML中引入SVG代码</h4><p>还可以在文本编辑器中打开SVG文件，复制SVG代码，并将其粘贴到HTML文档中 - 这有时称为将SVG内联或内联SVG。确保您的SVG代码在<code>&lt;svg&gt;&lt;/svg&gt;</code>标签中（不要在外面添加任何内容）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;green&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>优点:</p>
+<ol>
+  <li>将 SVG 内联减少 HTTP 请求，可以减少加载时间。</li>
+  
+  <li>可以为 SVG 元素分配class和id，并使用 CSS 修改样式，无论是在SVG中，还是 HTML 文档中的 CSS 样式规则。 实际上，可以使用任何 SVG外观属性 作为CSS属性。</li>
+  
+  <li>内联SVG是唯一可以让您在SVG图像上使用CSS交互（如:focus）和CSS动画的方法（即使在常规样式表中）。</li>
+  
+  <li>您可以通过将 SVG 标记包在 a元素 中，使其成为超链接。</li>
+</ol>
+
+<p>缺点:</p>
+<ol>
+  <li>这种方法只适用于在一个地方使用的SVG。多次使用会导致资源密集型维护（resource-intensive maintenance）。</li>
+  
+  <li>额外的 SVG 代码会增加HTML文件的大小。</li>
+  
+  <li>浏览器不能像缓存普通图片一样缓存内联SVG。</li>
+  
+  <li>您可能会在 foreignObject元素 中包含回退，但支持 SVG 的浏览器仍然会下载任何后备图像。你需要考虑仅仅为支持过时的浏览器，而增加额外开销是否真的值得。</li>
+</ol>
+
+<h4 id="使用-lt-iframe-gt-嵌入SVG"><a href="#使用-lt-iframe-gt-嵌入SVG" class="headerlink" title="使用 &lt;iframe&gt; 嵌入SVG"></a>使用 <code>&lt;iframe&gt;</code> 嵌入SVG</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    若浏览器不支持 iframe，则会显示 img里的内容</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;triangle.svg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span> <span class="attr">sandbox</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;triangle.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Triangle with three unequal sides&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>缺点</p>
+<ol>
+  <li>如你所知， iframe有一个回退机制，如果浏览器不支持iframe，则只会显示回退。</li>
+  
+  <li>此外，除非 SVG 和您当前的网页具有相同的 origin，否则你不能在主页面上使用 JavaScript 来操纵 SVG。</li>
+</ol>
+
+<h2 id="自适应图片"><a href="#自适应图片" class="headerlink" title="自适应图片"></a>自适应图片</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9IVE1ML011bHRpbWVkaWFfYW5kX2VtYmVkZGluZy9SZXNwb25zaXZlX2ltYWdlcw==">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="为什么要用自适应的图片"><a href="#为什么要用自适应的图片" class="headerlink" title="为什么要用自适应的图片"></a>为什么要用自适应的图片</h3><p>需要解决不同设备、不同观看环境下的分辨率切换问题</p>
+<p>你可能会认为矢量图形能解决这些问题，在某种程度上是这样的——它们无论是文件大小还是比例都合适，无论在哪里你都应该尽可能的使用它们。然而，它们并不适合所有的图片类型，虽然在简单图形、图案、界面元素等方面较好，但如果是有大量的细节的照片，创建矢量图像会变得非常复杂。</p>
+<h3 id="怎样创建自适应的图片"><a href="#怎样创建自适应的图片" class="headerlink" title="怎样创建自适应的图片"></a>怎样创建自适应的图片</h3><p>在本节中我们将专注于HTML的 <code>&lt;img&gt;</code>，但网站页眉的图片仅是装饰性的，实际上应该要用CSS的背景图片来实现。CSS是比HTML更好的响应式设计的工具</p>
+<h4 id="分辨率切换：不同的尺寸"><a href="#分辨率切换：不同的尺寸" class="headerlink" title="分辨率切换：不同的尺寸"></a>分辨率切换：不同的尺寸</h4><p>可以使用两个新的属性——srcset 和 sizes——来提供更多额外的资源图像和提示，帮助浏览器选择正确的一个资源</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">  srcset定义了我们允许浏览器选择的图像集，以及每个图像的大小。在每个逗号之前，我们写：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    1、一个文件名 (elva-fairy-480w.jpg.)</span></span><br><span class="line"><span class="comment">    2、一个空格</span></span><br><span class="line"><span class="comment">    3、图像的固有宽度（以像素为单位）（480w）——注意到这里使用w单位，而不是你预计的px。这是图像的真实大小，可以通过检查你电脑上的图片文件找到</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">   sizes定义了一组媒体条件（例如屏幕宽度）并且指明当某些媒体条件为真时，什么样的图片尺寸是最佳选择—我们在之前已经讨论了一些提示。在这种情况下，在每个逗号之前，我们写：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    1、一个媒体条件（(max-width:480px)）——你会在 CSS topic中学到更多的。在这里，我们说“当可视窗口的宽度是480像素或更少”</span></span><br><span class="line"><span class="comment">    2、一个空格</span></span><br><span class="line"><span class="comment">    3、当媒体条件为真时，图像将填充的槽的宽度（440px）</span></span><br><span class="line"><span class="comment">  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">srcset</span>=<span class="string">&quot;elva-fairy-320w.jpg 320w,</span></span></span><br><span class="line"><span class="string"><span class="tag">             elva-fairy-480w.jpg 480w,</span></span></span><br><span class="line"><span class="string"><span class="tag">             elva-fairy-800w.jpg 800w&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">sizes</span>=<span class="string">&quot;(max-width: 320px) 280px,</span></span></span><br><span class="line"><span class="string"><span class="tag">            (max-width: 480px) 440px,</span></span></span><br><span class="line"><span class="string"><span class="tag">            800px&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">src</span>=<span class="string">&quot;elva-fairy-800w.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Elva dressed as a fairy&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>所以，有了这些属性，浏览器会：</p>
+<ol>
+  <li>查看设备宽度</li>
+  <li>检查sizes列表中哪个媒体条件是第一个为真</li>
+  <li>查看给予该媒体查询的槽大小</li>
+  <li>加载srcset列表中引用的最接近所选的槽大小的图像</li>
+</ol>  
+
+<h4 id="一些有用的开发工具"><a href="#一些有用的开发工具" class="headerlink" title="一些有用的开发工具"></a>一些有用的开发工具</h4><p>1、响应式设计模式：</p>
+<p>在 “开发者调式工具” 中，点击右上角 “手机” 样式的图案，即“响应式设计模式”，可以进入到类似手机端的视图模式，在这里可以设计不同设备上的样式适应度</p>
+<p>2、选取页面中的元素：</p>
+<p>在 “开发者调式工具” 中，选择左上角的 “箭头” 样式的图案，即 “选取页面中的元素”，然后点击网页中的任一元素，可以查看该元素的大小等细节</p>
+<p>3、查看网页构件</p>
+<p>在 “开发者调式工具” 中，选择菜单栏中的 “网络”，然后选择 “重新加载”，网络检查工具会给你一个列表，里面的文件都是已经被下载来构造网页的。然后你可以在这里看到哪个图像文件被下载了</p>
+<p>注意: 在 Chrome 中测试时，通过如下方式禁用缓存：打开 “开发者工具” ，并选中 “网络” 下方的 “停用缓存” 的选择框。否则，Chrome 会优先选择缓存图片而不是恰好适配的那个。</p>
+<h4 id="分辨率切换-相同的尺寸-不同的分辨率"><a href="#分辨率切换-相同的尺寸-不同的分辨率" class="headerlink" title="分辨率切换: 相同的尺寸, 不同的分辨率"></a>分辨率切换: 相同的尺寸, 不同的分辨率</h4><p>如果你支持多种分辨率显示，但希望每个人在屏幕上看到的图片的实际尺寸是相同的，你可以让浏览器通过srcset和x语法结合——一种更简单的语法——而不用sizes，来选择适当分辨率的图片</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">srcset</span>=<span class="string">&quot;elva-fairy-320w.jpg,</span></span></span><br><span class="line"><span class="string"><span class="tag">             elva-fairy-480w.jpg 1.5x,</span></span></span><br><span class="line"><span class="string"><span class="tag">             elva-fairy-640w.jpg 2x&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">src</span>=<span class="string">&quot;elva-fairy-640w.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Elva dressed as a fairy&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在这种情况下，sizes并不需要——浏览器只是计算出正在显示的显示器的分辨率，然后提供srcset引用的最适合的图像。因此，如果访问页面的设备具有标准/低分辨率显示，一个设备像素表示一个CSS像素，<code>elva-fairy-320w.jpg</code>会被加载（1x 是默认值，所以你不需要写出来）。如果设备有高分辨率，两个或更多的设备像素表示一个CSS像素，<code>elva-fairy-640w.jpg</code> 会被加载</p>
+<h4 id="美术设计"><a href="#美术设计" class="headerlink" title="美术设计"></a>美术设计</h4><p>美术设计问题涉及要更改显示的图像以适应不同的图像显示尺寸。<code>&lt;picture&gt;</code>元素允许我们这样实现</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">   media属性</span></span><br><span class="line"><span class="comment">    这一属性包含一个媒体条件，这些条件来决定哪张图片会显示——第一个条件返回真，</span></span><br><span class="line"><span class="comment">    那么就会显示这张图片。在这种情况下，如果视窗的宽度为799px或更少，</span></span><br><span class="line"><span class="comment">    第一个&lt;source&gt;元素的图片就会显示。如果视窗的宽度是800px或更大，就显示第二张图片</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    srcset属性</span></span><br><span class="line"><span class="comment">     包含要显示图片的路径。请注意，正如我们在&lt;img&gt;上面看到的那样，</span></span><br><span class="line"><span class="comment">     &lt;source&gt;可以使用引用多个图像的srcset属性，还有sizes属性。</span></span><br><span class="line"><span class="comment">     所以你可以通过一个 &lt;picture&gt;元素提供多个图片，不过也可以给每个图片提供多分辨率的图片。</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">  在任何情况下，你都必须在 &lt;/picture&gt;之前正确提供一个&lt;img&gt;元素以及它的src和alt属性，</span></span><br><span class="line"><span class="comment">  否则不会有图片显示。当媒体条件都不返回真的时候，它会提供图片；</span></span><br><span class="line"><span class="comment">  如果浏览器不支持 &lt;picture&gt;元素时，它可以作为后备方案</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(max-width: 799px)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;elva-480w-close-portrait.jpg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(min-width: 800px)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;elva-800w.jpg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;elva-800w.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Chris standing up holding his daughter Elva&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意: 你应该仅仅当在美术设计场景下使用media属性；当你使用media时，不要在sizes属性中也提供媒体条件</p>
+<h4 id="为什么不能使用-CSS-或-JS-自适应图片"><a href="#为什么不能使用-CSS-或-JS-自适应图片" class="headerlink" title="为什么不能使用 CSS 或 JS 自适应图片"></a>为什么不能使用 CSS 或 JS 自适应图片</h4><p>因为你不能先加载好 <code>&lt;img&gt;</code> 元素后, 再用 JavaScript 检测可视窗口的宽度，如果觉得大小不合适，再动态地加载小的图片替换已经加载好的图片，这样的话, 原始的图像已经被加载了, 然后你又加载了小的图像, 这样的做法对于响应式图像的理念来说，是很糟糕的</p>
+<h4 id="使用现代图像格式"><a href="#使用现代图像格式" class="headerlink" title="使用现代图像格式"></a>使用现代图像格式</h4><p>有很多令人激动的新图像格式（例如WebP和JPEG-2000）可以在有高质量的同时有较低的文件大小。然而，浏览器对其的支持参差不齐</p>
+<p><code>&lt;picture&gt;</code>让我们能继续满足老式浏览器的需要。你可以在<code>type</code>属性中提供MIME类型，这样浏览器就能立即拒绝其不支持的文件类型：`</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">  不要使用media属性，除非你也需要美术设计。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  在&lt;source&gt; 元素中，你只可以引用在type中声明的文件类型。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  像之前一样，如果必要，你可以在srcset和sizes中使用逗号分割的列表</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">type</span>=<span class="string">&quot;image/svg+xml&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;pyramid.svg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">type</span>=<span class="string">&quot;image/webp&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;pyramid.webp&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;pyramid.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;regular pyramid built from four equilateral triangles&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+     
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">---------------------------------------------------------</div>
+    
+</div>
+     <div class="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=7261872754&auto=0&height=430"></iframe>
+      </div>
+   </div>
+ 
+        <div class="reward-container">
+  <div>原创技术分享，您的支持将鼓励我继续创作</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt=" 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt=" 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://tiansztiansz.github.io/2022/03/22/2-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8E%E5%B5%8C%E5%85%A5/" title="2-HTML多媒体与嵌入">https://tiansztiansz.github.io/2022/03/22/2-多媒体与嵌入/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/HTML%EF%BC%88%E6%9E%84%E5%BB%BAWeb%EF%BC%89/" rel="tag"><i class="fa fa-tag"></i> HTML（构建Web）</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/21/github%E5%85%A8%E9%80%89%E5%A4%8D%E5%88%B6%E4%BB%A3%E7%A0%81/" rel="prev" title="Github全选复制文本">
+      <i class="fa fa-chevron-left"></i> Github全选复制文本
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/24/3-%E8%A1%A8%E6%A0%BC/" rel="next" title="3-HTML表格">
+      3-HTML表格 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+
+
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number">1.</span> <span class="nav-text">HTML 中的图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%B0%86%E4%B8%80%E5%B9%85%E5%9B%BE%E7%89%87%E6%94%BE%E5%88%B0%E7%BD%91%E9%A1%B5%E4%B8%8A"><span class="nav-number">1.1.</span> <span class="nav-text">怎么将一幅图片放到网页上</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%87%E9%80%89%E6%96%87%E6%9C%AC"><span class="nav-number">1.1.1.</span> <span class="nav-text">备选文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%BD%E5%BA%A6%E5%92%8C%E9%AB%98%E5%BA%A6"><span class="nav-number">1.1.2.</span> <span class="nav-text">宽度和高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Image-titles-%E5%9B%BE%E7%89%87%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.3.</span> <span class="nav-text">Image titles 图片标题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E5%9B%BE%E7%89%87%E6%90%AD%E9%85%8D%E8%AF%B4%E6%98%8E%E6%96%87%E5%AD%97"><span class="nav-number">1.2.</span> <span class="nav-text">为图片搭配说明文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">1.3.</span> <span class="nav-text">CSS 背景图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E5%92%8C%E9%9F%B3%E9%A2%91"><span class="nav-number">2.</span> <span class="nav-text">视频和音频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%92%8C%E9%9F%B3%E9%A2%91"><span class="nav-number">2.1.</span> <span class="nav-text">Web 中的视频和音频</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-video-gt-%E5%85%83%E7%B4%A0"><span class="nav-number">2.1.1.</span> <span class="nav-text">&lt;video&gt;元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E6%92%AD%E6%94%BE%E6%BA%90"><span class="nav-number">2.1.2.</span> <span class="nav-text">多个播放源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-lt-video-gt-%E7%89%B9%E6%80%A7"><span class="nav-number">2.1.3.</span> <span class="nav-text">其他 &lt;video&gt; 特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-audio-gt-%E6%A0%87%E7%AD%BE"><span class="nav-number">2.1.4.</span> <span class="nav-text">&lt;audio&gt; 标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E6%92%AD%E6%94%BE%E5%AA%92%E4%BD%93"><span class="nav-number">2.1.5.</span> <span class="nav-text">重新播放媒体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9F%B3%E8%BD%A8%E5%A2%9E%E5%88%A0%E4%BA%8B%E4%BB%B6"><span class="nav-number">2.1.6.</span> <span class="nav-text">音轨增删事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E9%9F%B3%E8%BD%A8%E6%96%87%E6%9C%AC"><span class="nav-number">2.2.</span> <span class="nav-text">显示音轨文本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E5%AF%B9%E8%B1%A1%E5%88%B0iframe-%E2%80%94%E2%80%94-%E5%85%B6%E5%AE%83%E5%B5%8C%E5%85%A5%E6%8A%80%E6%9C%AF"><span class="nav-number">3.</span> <span class="nav-text">从对象到iframe —— 其它嵌入技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E7%9A%84%E7%AE%80%E5%8F%B2"><span class="nav-number">3.1.</span> <span class="nav-text">嵌入的简史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">嵌入类型的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.3.</span> <span class="nav-text">iframe详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E9%9A%90%E6%82%A3"><span class="nav-number">3.3.1.</span> <span class="nav-text">安全隐患</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AA%E6%9C%89%E5%9C%A8%E5%BF%85%E8%A6%81%E6%97%B6%E5%B5%8C%E5%85%A5"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">只有在必要时嵌入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-HTTPS"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">使用 HTTPS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A7%8B%E7%BB%88%E4%BD%BF%E7%94%A8sandbox%E5%B1%9E%E6%80%A7"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">始终使用sandbox属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AECSP%E6%8C%87%E4%BB%A4"><span class="nav-number">3.3.1.4.</span> <span class="nav-text">配置CSP指令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-embed-gt-%E5%92%8C-lt-object-gt-%E5%85%83%E7%B4%A0"><span class="nav-number">3.4.</span> <span class="nav-text">&lt;embed&gt;和&lt;object&gt;元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E6%8F%92%E4%BB%B6%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">3.4.1.</span> <span class="nav-text">针对插件的情况</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%9F%A2%E9%87%8F%E5%9B%BE%E5%BD%A2"><span class="nav-number">4.</span> <span class="nav-text">在网页中添加矢量图形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%9F%A2%E9%87%8F%E5%9B%BE%E5%BD%A2"><span class="nav-number">4.1.</span> <span class="nav-text">什么是矢量图形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">4.2.</span> <span class="nav-text">SVG是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86SVG%E6%B7%BB%E5%8A%A0%E5%88%B0%E9%A1%B5%E9%9D%A2"><span class="nav-number">4.3.</span> <span class="nav-text">将SVG添加到页面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%EF%BC%9A-lt-img-gt"><span class="nav-number">4.3.1.</span> <span class="nav-text">快捷方式：&lt;img&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81"><span class="nav-number">4.3.2.</span> <span class="nav-text">跨浏览器支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8HTML%E4%B8%AD%E5%BC%95%E5%85%A5SVG%E4%BB%A3%E7%A0%81"><span class="nav-number">4.3.3.</span> <span class="nav-text">在HTML中引入SVG代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-lt-iframe-gt-%E5%B5%8C%E5%85%A5SVG"><span class="nav-number">4.3.4.</span> <span class="nav-text">使用 &lt;iframe&gt; 嵌入SVG</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E9%80%82%E5%BA%94%E5%9B%BE%E7%89%87"><span class="nav-number">5.</span> <span class="nav-text">自适应图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%87%AA%E9%80%82%E5%BA%94%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number">5.1.</span> <span class="nav-text">为什么要用自适应的图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E9%80%82%E5%BA%94%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number">5.2.</span> <span class="nav-text">怎样创建自适应的图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E8%BE%A8%E7%8E%87%E5%88%87%E6%8D%A2%EF%BC%9A%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B0%BA%E5%AF%B8"><span class="nav-number">5.2.1.</span> <span class="nav-text">分辨率切换：不同的尺寸</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">5.2.2.</span> <span class="nav-text">一些有用的开发工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E8%BE%A8%E7%8E%87%E5%88%87%E6%8D%A2-%E7%9B%B8%E5%90%8C%E7%9A%84%E5%B0%BA%E5%AF%B8-%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">5.2.3.</span> <span class="nav-text">分辨率切换: 相同的尺寸, 不同的分辨率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BE%8E%E6%9C%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">5.2.4.</span> <span class="nav-text">美术设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-CSS-%E6%88%96-JS-%E8%87%AA%E9%80%82%E5%BA%94%E5%9B%BE%E7%89%87"><span class="nav-number">5.2.5.</span> <span class="nav-text">为什么不能使用 CSS 或 JS 自适应图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%8E%B0%E4%BB%A3%E5%9B%BE%E5%83%8F%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.2.6.</span> <span class="nav-text">使用现代图像格式</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpYW5zenRpYW5zeg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tiansztiansz"><i class=" fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjg2MDY4OTM=" title="bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;28606893"><i class=" fa-fw"></i>bilibili</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jaGluZXNlLmZyZWVjb2RlY2FtcC5vcmcvbGVhcm4v" title="https:&#x2F;&#x2F;chinese.freecodecamp.org&#x2F;learn&#x2F;">freeCodeCamp</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvL2FjY291bnRzL3NpZ251cA==" title="https:&#x2F;&#x2F;codepen.io&#x2F;accounts&#x2F;signup">CodePen</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04v" title="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;">mdn</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcv" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;">Vue.js</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC5kb2NzY2hpbmEub3JnLw==" title="https:&#x2F;&#x2F;react.docschina.org&#x2F;">React</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tYXJrZG93bi5jb20uY24v" title="https:&#x2F;&#x2F;markdown.com.cn&#x2F;">Markdown</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly90ZW5zb3JmbG93Lmdvb2dsZS5jbi9qcz9obD16aC1jbg==" title="https:&#x2F;&#x2F;tensorflow.google.cn&#x2F;js?hl&#x3D;zh-cn">TensorFlow.js</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cubm93Y29kZXIuY29tL2V4YW0vb2o/dGFiPSVFNSU4OSU4RCVFNyVBQiVBRiVFNyVBRiU4NyZ0b3BpY0lkPTI2MA==" title="https:&#x2F;&#x2F;www.nowcoder.com&#x2F;exam&#x2F;oj?tab&#x3D;%E5%89%8D%E7%AB%AF%E7%AF%87&amp;topicId&#x3D;260">牛客网</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jbi5iaW5nLmNvbS90cmFuc2xhdG9yP3JlZj1UVGhpcyZ0ZXh0PSZmcm9tPSZ0bz0mbWt0PXpoLUNO" title="https:&#x2F;&#x2F;cn.bing.com&#x2F;translator?ref&#x3D;TThis&amp;text&#x3D;&amp;from&#x3D;&amp;to&#x3D;&amp;mkt&#x3D;zh-CN">微软翻译</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vY24vZ2V0LXN0YXJ0ZWQvcXVpY2tzdGFydC9oZWxsby13b3JsZA==" title="https:&#x2F;&#x2F;docs.github.com&#x2F;cn&#x2F;get-started&#x2F;quickstart&#x2F;hello-world">GitHub Docs</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3d4b3Blbi9wbHVnaW5kZXZkb2M/YXBwaWQ9d3g2YWZlZDExOGQ5ZTgxZGY5JnRva2VuPSZsYW5nPXpoX0NOI3RlbnNvcmZsb3ctanMt" title="https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;wxopen&#x2F;plugindevdoc?appid&#x3D;wx6afed118d9e81df9&amp;token&#x3D;&amp;lang&#x3D;zh_CN#tensorflow-js-">tfjs微信小程序</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93dzIubWF0aHdvcmtzLmNuL2hlbHAvaW5kZXguaHRtbA==" title="https:&#x2F;&#x2F;ww2.mathworks.cn&#x2F;help&#x2F;index.html">matlab帮助</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93ZXJlYWQucXEuY29tLw==" title="https:&#x2F;&#x2F;weread.qq.com&#x2F;">微信读书</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jYW5pdXNlLmNvbS8=" title="https:&#x2F;&#x2F;caniuse.com&#x2F;">caniuse</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jLnJ1bm9vYi5jb20vZnJvbnQtZW5kLzU5Lw==" title="https:&#x2F;&#x2F;c.runoob.com&#x2F;front-end&#x2F;59&#x2F;">base64</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tYW4ubmlhb2dlLmNvbS8=" title="https:&#x2F;&#x2F;man.niaoge.com&#x2F;">鸟哥Linux命令大全</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuenlidWx1by5jb20vY29kZWVwL25vdGUvMTYzOTYyIzElRTUlQTYlODIlRTQlQkQlOTUlRTYlOEYlOTIlRTUlODUlQTUlRTUlODUlQUMlRTUlQkMlOEY=" title="https:&#x2F;&#x2F;www.zybuluo.com&#x2F;codeep&#x2F;note&#x2F;163962#1%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E5%85%AC%E5%BC%8F">Markdown数学公式</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWxvdmVwZGYuY29tL3poLWNu" title="https:&#x2F;&#x2F;www.ilovepdf.com&#x2F;zh-cn">ilovepdf</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly96ZWFsZG9jcy5vcmcv" title="https:&#x2F;&#x2F;zealdocs.org&#x2F;">Zeal</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3Rvb2xzL2luZGV4P25hbWU9Y3JlYXRlX3JlZw==" title="https:&#x2F;&#x2F;www.w3cschool.cn&#x2F;tools&#x2F;index?name&#x3D;create_reg">正则表达式</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宁静致远</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : ,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://tiansztiansz.github.io/2022/03/22/2-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8E%E5%B5%8C%E5%85%A5/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '9bb0ec741dd8e16027ed',
+      clientSecret: 'a106aa5fcacccdda2505b99961042b051d10e0c2',
+      repo        : 'tiansztiansz.github.io',
+      owner       : 'tiansztiansz',
+      admin       : ['tiansztiansz'],
+      id          : '522a0e51046821b4c272844d23f2c133',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

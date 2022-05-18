@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+<script data-ad-client="ca-pub-3200468627061889" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3200468627061889"
+     crossorigin="anonymous"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tiansztiansz.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Web入门">
+<meta property="og:url" content="https://tiansztiansz.github.io/2022/03/20/Web%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="宁静致远的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-20T01:30:27.765Z">
+<meta property="article:modified_time" content="2022-03-24T09:53:02.919Z">
+<meta property="article:tag" content="Web入门">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://tiansztiansz.github.io/2022/03/20/Web%E5%85%A5%E9%97%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Web入门 | 宁静致远的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宁静致远的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">65</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">160</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tiansztiansz.github.io/2022/03/20/Web%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宁静致远的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Web入门
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-20 09:30:27" itemprop="dateCreated datePublished" datetime="2022-03-20T09:30:27+08:00">2022-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-24 17:53:02" itemprop="dateModified" datetime="2022-03-24T17:53:02+08:00">2022-03-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MDN/" itemprop="url" rel="index"><span itemprop="name">MDN</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="安装基本软件"><a href="#安装基本软件" class="headerlink" title="安装基本软件"></a><span id="more"></span>安装基本软件</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9HZXR0aW5nX3N0YXJ0ZWRfd2l0aF90aGVfd2ViL0luc3RhbGxpbmdfYmFzaWNfc29mdHdhcmU=">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="专业人员使用哪些工具"><a href="#专业人员使用哪些工具" class="headerlink" title="专业人员使用哪些工具"></a>专业人员使用哪些工具</h3><p>1、计算机：Windows，Mac，或者 Linux 系统的台式机或笔记本电脑</p>
+<p>2、文本编辑器：用来编写代码。可以是纯文本编辑器（比如 Visual Studio Code）；也可以是混合编辑器（比如 Dreamweaver 或 WebStorm）</p>
+<p>3、Web 浏览器，用来测试代码。如今使用最多的浏览器有 Firefox，Chrome，Opera， Safari，Internet Explorer 和 Microsoft Edge）</p>
+<p>4、图像编辑器，像 GIMP、Paint.NET、Photoshop 或者 XD，用来编辑网页中的图形图像</p>
+<p>5、版本控制系统，用来管理服务器上文件，支持项目团队协作，共享代码资源，以及避免编辑冲突。当今最流行的版本控制工具是 Git，同时 GitHub 以及 GitLab 等基于 Git 的代码托管服务网站也非常流行</p>
+<p>6、FTP 工具，老式 Web 托管账户用来管理服务器上文件（正在被 Git 迅速取代）。有很多 (S)FTP 工具软件，比如 Cyberduck、Fetch 和 FileZilla</p>
+<p>7、自动化构建工具， 用来自动完成压缩代码和运行测试等重复性任务，比如 Grunt 或 Gulp</p>
+<p>8、模板，库，框架等等，可提高效率的工具</p>
+<h2 id="设计网站外观"><a href="#设计网站外观" class="headerlink" title="设计网站外观"></a>设计网站外观</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9HZXR0aW5nX3N0YXJ0ZWRfd2l0aF90aGVfd2ViL1doYXRfd2lsbF95b3VyX3dlYnNpdGVfbG9va19saWtl">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="第一步：做出计划"><a href="#第一步：做出计划" class="headerlink" title="第一步：做出计划"></a>第一步：做出计划</h3><p>开始之前，请考虑以下问题：</p>
+<p>1、网站的主题是什么？是狗、上海城市还是吃豆人？</p>
+<p>2、基于所选主题要展示哪些信息？写下标题和几段文字，构思一个用于展示的图形。</p>
+<p>3、网站采用怎样的外观？用高阶术语说就是，选什么背景色？什么字体（正式的还卡通的，粗体还是细体）？</p>
+<h3 id="绘制草图"><a href="#绘制草图" class="headerlink" title="绘制草图"></a>绘制草图</h3><p>接下来，拿出纸笔画出网站草图</p>
+<h3 id="选定内容"><a href="#选定内容" class="headerlink" title="选定内容"></a>选定内容</h3><h4 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h4><p>准备好刚才撰写的标题和文字</p>
+<h4 id="主题颜色"><a href="#主题颜色" class="headerlink" title="主题颜色"></a>主题颜色</h4><p>打开 色彩选择器 挑选心仪的颜色</p>
+<h4 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h4><p>访问 Google 图片搜索 来搜索合适的图片</p>
+<p>请注意大多数网络图片（包括 Google 图片）都是受版权保护的。为了降低盗版风险，可以使用“Google 许可证过滤器”。点击“工具”按钮，然后在使用权限的选项下选择类似“标记为可再利用”的选项</p>
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>1、访问 Google Fonts（ 或者 阿里字体素材平台） 。打开右侧边栏可现实选中的字体家族。</p>
+<p>2、可通过 Categories（类别）、Languages（语言）、Font Properties（字体属性）过滤想要的字体。</p>
+<p>3、在列出的字体风格列表中，选择合适的粗细、是否倾斜等信息。</p>
+<p>3、在右侧边栏中可以看到 Google 给出的代码片段，将其复制到文本编辑器就可以使用了。</p>
+<h2 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9HZXR0aW5nX3N0YXJ0ZWRfd2l0aF90aGVfd2ViL0RlYWxpbmdfd2l0aF9maWxlcw==">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="网站保存在何处"><a href="#网站保存在何处" class="headerlink" title="网站保存在何处"></a>网站保存在何处</h3><p>对于本地网站，应将所有相关文件放在一个单独文件夹中，可以映射出服务器端站点文件结构</p>
+<p>1、确定网站项目储存位置。在该位置下创建一个文件夹（比如 web-projects）。所有网站项目都存在一处。</p>
+<p>2、在这个文件夹里再新建一个文件夹（比如 test-site），来存放第一个网站</p>
+<h3 id="关于大小写和空格的提示"><a href="#关于大小写和空格的提示" class="headerlink" title="关于大小写和空格的提示"></a>关于大小写和空格的提示</h3><p>1、很多计算机，特别是 Web 服务器，是对大小写敏感的</p>
+<p>2、浏览器、Web 服务器，还有编程语言处理空格的方式不一致。比如，一些系统会将包含空格的文件名其视为两个。一些服务器将会把文件名里的空格替换为 “%20”（URI 里空格的编码），从而使链接遭到破坏。最好使用中划线，而不是下划线来分离单词</p>
+<p>文件夹和文件名使用小写，用短横线而不是空格来分隔。可以避免许多问题</p>
+<h3 id="网站应该使用什么结构"><a href="#网站应该使用什么结构" class="headerlink" title="网站应该使用什么结构"></a>网站应该使用什么结构</h3><p>最基本、最常见的结构是：一个主页、一个图片文件夹、一个样式表文件夹和一个脚本文件夹</p>
+<p>1、<code>index.html</code> ：这个文件一般包含主页内容，即用户第一次访问站点时看到的文本和图像</p>
+<p>2、<code>images 文件夹</code> ：这个文件夹包含站点中的所有图像</p>
+<p>3、<code>styles 文件夹</code> ：这个文件夹包含站点所需样式表（比如，设置文本颜色和背景颜色）</p>
+<p>4、<code>scripts 文件夹</code> ：这个文件夹包含提供站点交互功能的 JavaScript 代码（比如读取数据的按钮）</p>
+<h3 id="文件路径"><a href="#文件路径" class="headerlink" title="文件路径"></a>文件路径</h3><p>为使文件间正常交互，应为每个文件提供访问路径，让一个文件知道另一个文件的位置</p>
+<p>1、若引用的目标文件与 HTML 文件同级，只需直接使用文件名，比如 <code>my-image.jpg</code> 。</p>
+<p>2、要引用子文件夹中的文件，要在路径前写下目录名并加一个斜杠，比如 <code>subdirectory/my-image.jpg</code> 。</p>
+<p>3、若引用的目标文件位于 HTML 文件的上级，需要加上两个点。比如，如果 index.html 在 test-site 下面的一个子目录而 my-image.png 在 test-site 目录，你可以在 index.html 里使用 <code>../my-image.png</code> 引用 my-image.png</p>
+<h2 id="发布网站"><a href="#发布网站" class="headerlink" title="发布网站"></a>发布网站</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9HZXR0aW5nX3N0YXJ0ZWRfd2l0aF90aGVfd2ViL1B1Ymxpc2hpbmdfeW91cl93ZWJzaXRl">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="有哪些方法可供选择"><a href="#有哪些方法可供选择" class="headerlink" title="有哪些方法可供选择"></a>有哪些方法可供选择</h3><h4 id="获取主机服务和域名"><a href="#获取主机服务和域名" class="headerlink" title="获取主机服务和域名"></a>获取主机服务和域名</h4><p>有一些免费服务比如 Neocities ， Blogspot 和 Wordpress</p>
+<p>如果你想要完全控制你发布的网页，那么你将需要花钱购置：</p>
+<p>1、主机服务 —— 在主机服务提供商的 Web 服务器上租用文件空间。将你网站的文件上传到这里，然后服务器会提供 Web 用户需求的内容。</p>
+<p>2、域名 —— 一个可以让人们访问的独一无二的地址，比如 <code>http://www.mozilla.org</code>，或 <code>http://www.bbc.co.uk</code> 。你可以从域名注册商租借域名 </p>
+<p>许多专业的网站通过这种方法接入互联网</p>
+<p>此外，你将需要一个 文件传输协议 程序来将网站文件上传到服务器。不同的 FTP 程序涵盖了不同的范围， 但是你通常需要使用主机服务提供商给你的详细信息（比如用户名、密码、主机名）登录到 Web 服务器 。然后程序在两个窗口里分别显示本地文件和服务器文件，这样你就可以在它们之间进行传输</p>
+<h4 id="在线工具"><a href="#在线工具" class="headerlink" title="在线工具"></a>在线工具</h4><p>1、GitHub 有一个非常有用的特点叫 GitHub pages，允许你将网站代码放在网上</p>
+<p>2、Google App Engine是一个让你可以在Google的基础架构上构建和运行应用的强劲平台——无论你是需要从头开始构建多级web应用还是托管一个静态网站</p>
+<h4 id="基于-Web-的集成开发环境"><a href="#基于-Web-的集成开发环境" class="headerlink" title="基于 Web 的集成开发环境"></a>基于 Web 的集成开发环境</h4><p>有许多web应用（JSFiddle、Thimble、JSBin、CodePen）能够仿真一个网站开发环境。你可以在这种应用——通常只有一个标签页——里输入 HTML、CSS 和 JavaScript 代码然后像显示网页一样显示代码的结果。通常这些工具都很简单，对学习很有帮助，而且至少有免费的基本功能，它们在一个独特的网址显示你提交的网页。不过，这些应用的基础功能很有限，而且应用通常不提供空间来存储图像等内容</p>
+<h3 id="通过GitHub发布"><a href="#通过GitHub发布" class="headerlink" title="通过GitHub发布"></a>通过GitHub发布</h3><p>1、首先， 注册一个GitHub账号， 并确认你的邮箱地址。</p>
+<p>2、接下来，你需要创建一个新的资源库( repository )来存放你的文件。</p>
+<p>3、在这个页面上，在 Repository name 输入框里输入  username.github.io，username 是你的用户名。比如，我们的朋友 bobsmith 会输入  bobsmith.github.io。同时勾选  Initialize this repository with a README ，然后点击 Create repository。 </p>
+<p>4、然后，将你的网站文件夹里的内容拖拽到你的资源库( repository )，再点击 Commit changes（提示: 确保你的文件夹有一个 index.html 文件.）</p>
+<p>5、现在将你的浏览器转到 username.github.io 来在线查看你的网站。比如，如果用户名为chrisdavidmills, 请转到 chrisdavidmills.github.io。（提示: 你的网站可能需要几分钟的时间才能投入使用。 如果它不能立即工作，你可能需要等待几分钟，然后再试一次。）</p>
+<h2 id="Web-如何运作"><a href="#Web-如何运作" class="headerlink" title="Web 如何运作"></a>Web 如何运作</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9HZXR0aW5nX3N0YXJ0ZWRfd2l0aF90aGVfd2ViL0hvd190aGVfV2ViX3dvcmtz">参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="客户端和服务器"><a href="#客户端和服务器" class="headerlink" title="客户端和服务器"></a>客户端和服务器</h3><p>1、客户端是典型的Web用户入网设备（比如，你连接了Wi-Fi的电脑，或接入移动网络的手机）和设备上可联网的软件（通常使用像 Firefox 和 Chrome的浏览器）</p>
+<p>2、服务器是存储网页，站点和应用的计算机。当一个客户端设备想要获取一个网页时，一份网页的拷贝将从服务器上下载到客户端机器上来在用户浏览器上显示</p>
+<h3 id="其他部分"><a href="#其他部分" class="headerlink" title="其他部分"></a>其他部分</h3><p>现在，让我们假设 Web 就是一条路。路的一端是客户端，就像你的家。另一端则是服务器，就像你想去的商店</p>
+<p>1、网络连接: 允许你在互联网上发送和接受数据。基本上和你家到商店的街道差不多。</p>
+<p>2、TCP/IP: 传输控制协议和因特网互连协议是定义数据如何传输的通信协议。这就像你去商店购物所使用的交通方式，比如汽车或自行车（或是你能想到的其他可能）。</p>
+<p>3、DNS: 域名系统服务器像是一本网站通讯录。当你在浏览器内输入一个网址时，浏览器获取网页之前将会查看域名系统。浏览器需要找到存放你想要的网页的服务器，才能发送 HTTP 请求到正确的地方。就像你要知道商店的地址才能到达那。</p>
+<p>4、HTTP: 超文本传输协议是一个定义客户端和服务器间交流的语言的协议（protocol ）。就像你下订单时所说的话一样。</p>
+<p>5、组成文件: 一个网页由许多文件组成，就像商店里不同的商品一样。这些文件有两种类型：</p>
+<ul><li>代码 : 网页大体由 HTML、CSS、JavaScript组成，不过你会在后面看到不同的技术</li>
+
+<li>资源 : 这是其他组成网页的东西的集合，比如图像、音乐、视频、Word文档、PDF文件</li></ul>
+
+<h3 id="运作过程"><a href="#运作过程" class="headerlink" title="运作过程"></a>运作过程</h3><p>当你在浏览器里输入一个网址时（在我们的例子里就是走向商店的路上时），运作顺序如下：</p>
+<p>1、浏览器在域名系统（DNS）服务器上找出存放网页的服务器的实际地址（找出商店的位置）。</p>
+<p>2、浏览器发送 HTTP 请求信息到服务器来请拷贝一份网页到客户端（你走到商店并下订单）。这条消息，包括其他所有在客户端和服务器之间传递的数据都是通过互联网使用 TCP/IP 协议传输的。</p>
+<p>3、服务器同意客户端的请求后，会返回一个“200 OK”信息，意味着“你可以查看这个网页，给你～”，然后开始将网页的文件以数据包的形式传输到浏览器（商店给你商品，你将商品带回家）。</p>
+<p>4、浏览器将数据包聚集成完整的网页然后将网页呈现给你（商品到了你的门口 —— 新东西，好棒！）</p>
+<h3 id="解析组成文件的顺序"><a href="#解析组成文件的顺序" class="headerlink" title="解析组成文件的顺序"></a>解析组成文件的顺序</h3><p>当浏览器向服务器发送请求获取 HTML 文件时，HTML 文件通常包含 “link” 和 “script” 元素，这些元素分别指向了外部的 CSS 样式表文件和 JavaScript 脚本文件。了解这些文件被浏览器解析的顺序是很重要的：</p>
+<p>1、浏览器首先解析 HTML 文件，并从中识别出所有的 “link” 和 “script” 元素，获取它们指向的外部文件的链接。</p>
+<p>2、继续解析 HTML 文件的同时，浏览器根据外部文件的链接向服务器发送请求，获取并解析 CSS 文件和 JavaScript 脚本文件。</p>
+<p>3、接着浏览器会给解析后的 HTML 文件生成一个 DOM 树（在内存中），会给解析后的 CSS 文件生成一个 CSSOM 树（在内存中），并且会编译和执行解析后的 JavaScript 脚本文件。</p>
+<p>4、伴随着构建 DOM 树、应用 CSSOM 树的样式、以及执行 JavaScript 脚本文件，浏览器会在屏幕上绘制出网页的界面；用户看到网页界面也就可以跟网页进行交互了</p>
+<h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>真正的网址看上去并不像你输入到地址框中的那样美好且容易记忆。它们是一串数字，像 63.245.217.105。</p>
+<p>这叫做 IP 地址，它代表了一个互联网上独特的位置。然而，它并不容易记忆，不是吗？那就是域名系统（DNS）被发明的原因。它们是将你输入浏览器的地址（像 “mozilla.org”）与实际 IP 地址相匹配的特殊的服务器</p>
+<h3 id="数据包详解"><a href="#数据包详解" class="headerlink" title="数据包详解"></a>数据包详解</h3><p>我们用 “包” 来描述数据从服务器到客户端传输的格式。当数据在 Web 上传输时，是以成千上万的小数据块的形式传输的。大量不同的用户都可以同时下载同一个网页。</p>
+<p>如果网页以单个大的数据块形式传输，一次就只有一个用户下载，无疑会让 Web 非常没有效率并且失去很多乐趣</p>
+
+    </div>
+
+    
+    
+    
+     
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">---------------------------------------------------------</div>
+    
+</div>
+     <div class="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=7261872754&auto=0&height=430"></iframe>
+      </div>
+   </div>
+ 
+        <div class="reward-container">
+  <div>原创技术分享，您的支持将鼓励我继续创作</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt=" 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt=" 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://tiansztiansz.github.io/2022/03/20/Web%E5%85%A5%E9%97%A8/" title="Web入门">https://tiansztiansz.github.io/2022/03/20/Web入门/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Web%E5%85%A5%E9%97%A8/" rel="tag"><i class="fa fa-tag"></i> Web入门</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/19/1-HTML%E4%BB%8B%E7%BB%8D/" rel="prev" title="1-HTML入门">
+      <i class="fa fa-chevron-left"></i> 1-HTML入门
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/21/%E6%AF%8F%E6%AC%A1%E5%BC%80%E5%90%AF%E7%81%AB%E7%8B%90%E6%B5%8F%E8%A7%88%E5%99%A8%E6%81%A2%E5%A4%8D%E4%B8%8A%E6%AC%A1%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5/" rel="next" title="开启火狐浏览器恢复上次的标签页">
+      开启火狐浏览器恢复上次的标签页 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+
+
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%9F%BA%E6%9C%AC%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">安装基本软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%93%E4%B8%9A%E4%BA%BA%E5%91%98%E4%BD%BF%E7%94%A8%E5%93%AA%E4%BA%9B%E5%B7%A5%E5%85%B7"><span class="nav-number">1.1.</span> <span class="nav-text">专业人员使用哪些工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E7%BD%91%E7%AB%99%E5%A4%96%E8%A7%82"><span class="nav-number">2.</span> <span class="nav-text">设计网站外观</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%81%9A%E5%87%BA%E8%AE%A1%E5%88%92"><span class="nav-number">2.1.</span> <span class="nav-text">第一步：做出计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E8%8D%89%E5%9B%BE"><span class="nav-number">2.2.</span> <span class="nav-text">绘制草图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E5%AE%9A%E5%86%85%E5%AE%B9"><span class="nav-number">2.3.</span> <span class="nav-text">选定内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%9C%AC"><span class="nav-number">2.3.1.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2"><span class="nav-number">2.3.2.</span> <span class="nav-text">主题颜色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F"><span class="nav-number">2.3.3.</span> <span class="nav-text">图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-number">2.3.4.</span> <span class="nav-text">字体</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">处理文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E4%BF%9D%E5%AD%98%E5%9C%A8%E4%BD%95%E5%A4%84"><span class="nav-number">3.1.</span> <span class="nav-text">网站保存在何处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%A4%A7%E5%B0%8F%E5%86%99%E5%92%8C%E7%A9%BA%E6%A0%BC%E7%9A%84%E6%8F%90%E7%A4%BA"><span class="nav-number">3.2.</span> <span class="nav-text">关于大小写和空格的提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E4%BB%80%E4%B9%88%E7%BB%93%E6%9E%84"><span class="nav-number">3.3.</span> <span class="nav-text">网站应该使用什么结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="nav-number">3.4.</span> <span class="nav-text">文件路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E7%BD%91%E7%AB%99"><span class="nav-number">4.</span> <span class="nav-text">发布网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9"><span class="nav-number">4.1.</span> <span class="nav-text">有哪些方法可供选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%BB%E6%9C%BA%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%9F%9F%E5%90%8D"><span class="nav-number">4.1.1.</span> <span class="nav-text">获取主机服务和域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7"><span class="nav-number">4.1.2.</span> <span class="nav-text">在线工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-Web-%E7%9A%84%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">4.1.3.</span> <span class="nav-text">基于 Web 的集成开发环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87GitHub%E5%8F%91%E5%B8%83"><span class="nav-number">4.2.</span> <span class="nav-text">通过GitHub发布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-%E5%A6%82%E4%BD%95%E8%BF%90%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">Web 如何运作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">5.1.</span> <span class="nav-text">客户端和服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%83%A8%E5%88%86"><span class="nav-number">5.2.</span> <span class="nav-text">其他部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">5.3.</span> <span class="nav-text">运作过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90%E7%BB%84%E6%88%90%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="nav-number">5.4.</span> <span class="nav-text">解析组成文件的顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS%E8%A7%A3%E6%9E%90"><span class="nav-number">5.5.</span> <span class="nav-text">DNS解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8C%85%E8%AF%A6%E8%A7%A3"><span class="nav-number">5.6.</span> <span class="nav-text">数据包详解</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpYW5zenRpYW5zeg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tiansztiansz"><i class=" fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjg2MDY4OTM=" title="bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;28606893"><i class=" fa-fw"></i>bilibili</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jaGluZXNlLmZyZWVjb2RlY2FtcC5vcmcvbGVhcm4v" title="https:&#x2F;&#x2F;chinese.freecodecamp.org&#x2F;learn&#x2F;">freeCodeCamp</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvL2FjY291bnRzL3NpZ251cA==" title="https:&#x2F;&#x2F;codepen.io&#x2F;accounts&#x2F;signup">CodePen</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04v" title="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;">mdn</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcv" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;">Vue.js</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC5kb2NzY2hpbmEub3JnLw==" title="https:&#x2F;&#x2F;react.docschina.org&#x2F;">React</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tYXJrZG93bi5jb20uY24v" title="https:&#x2F;&#x2F;markdown.com.cn&#x2F;">Markdown</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly90ZW5zb3JmbG93Lmdvb2dsZS5jbi9qcz9obD16aC1jbg==" title="https:&#x2F;&#x2F;tensorflow.google.cn&#x2F;js?hl&#x3D;zh-cn">TensorFlow.js</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cubm93Y29kZXIuY29tL2V4YW0vb2o/dGFiPSVFNSU4OSU4RCVFNyVBQiVBRiVFNyVBRiU4NyZ0b3BpY0lkPTI2MA==" title="https:&#x2F;&#x2F;www.nowcoder.com&#x2F;exam&#x2F;oj?tab&#x3D;%E5%89%8D%E7%AB%AF%E7%AF%87&amp;topicId&#x3D;260">牛客网</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jbi5iaW5nLmNvbS90cmFuc2xhdG9yP3JlZj1UVGhpcyZ0ZXh0PSZmcm9tPSZ0bz0mbWt0PXpoLUNO" title="https:&#x2F;&#x2F;cn.bing.com&#x2F;translator?ref&#x3D;TThis&amp;text&#x3D;&amp;from&#x3D;&amp;to&#x3D;&amp;mkt&#x3D;zh-CN">微软翻译</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vY24vZ2V0LXN0YXJ0ZWQvcXVpY2tzdGFydC9oZWxsby13b3JsZA==" title="https:&#x2F;&#x2F;docs.github.com&#x2F;cn&#x2F;get-started&#x2F;quickstart&#x2F;hello-world">GitHub Docs</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3d4b3Blbi9wbHVnaW5kZXZkb2M/YXBwaWQ9d3g2YWZlZDExOGQ5ZTgxZGY5JnRva2VuPSZsYW5nPXpoX0NOI3RlbnNvcmZsb3ctanMt" title="https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;wxopen&#x2F;plugindevdoc?appid&#x3D;wx6afed118d9e81df9&amp;token&#x3D;&amp;lang&#x3D;zh_CN#tensorflow-js-">tfjs微信小程序</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93dzIubWF0aHdvcmtzLmNuL2hlbHAvaW5kZXguaHRtbA==" title="https:&#x2F;&#x2F;ww2.mathworks.cn&#x2F;help&#x2F;index.html">matlab帮助</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93ZXJlYWQucXEuY29tLw==" title="https:&#x2F;&#x2F;weread.qq.com&#x2F;">微信读书</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jYW5pdXNlLmNvbS8=" title="https:&#x2F;&#x2F;caniuse.com&#x2F;">caniuse</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jLnJ1bm9vYi5jb20vZnJvbnQtZW5kLzU5Lw==" title="https:&#x2F;&#x2F;c.runoob.com&#x2F;front-end&#x2F;59&#x2F;">base64</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tYW4ubmlhb2dlLmNvbS8=" title="https:&#x2F;&#x2F;man.niaoge.com&#x2F;">鸟哥Linux命令大全</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuenlidWx1by5jb20vY29kZWVwL25vdGUvMTYzOTYyIzElRTUlQTYlODIlRTQlQkQlOTUlRTYlOEYlOTIlRTUlODUlQTUlRTUlODUlQUMlRTUlQkMlOEY=" title="https:&#x2F;&#x2F;www.zybuluo.com&#x2F;codeep&#x2F;note&#x2F;163962#1%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E5%85%AC%E5%BC%8F">Markdown数学公式</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWxvdmVwZGYuY29tL3poLWNu" title="https:&#x2F;&#x2F;www.ilovepdf.com&#x2F;zh-cn">ilovepdf</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly96ZWFsZG9jcy5vcmcv" title="https:&#x2F;&#x2F;zealdocs.org&#x2F;">Zeal</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3Rvb2xzL2luZGV4P25hbWU9Y3JlYXRlX3JlZw==" title="https:&#x2F;&#x2F;www.w3cschool.cn&#x2F;tools&#x2F;index?name&#x3D;create_reg">正则表达式</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宁静致远</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : ,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://tiansztiansz.github.io/2022/03/20/Web%E5%85%A5%E9%97%A8/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '9bb0ec741dd8e16027ed',
+      clientSecret: 'a106aa5fcacccdda2505b99961042b051d10e0c2',
+      repo        : 'tiansztiansz.github.io',
+      owner       : 'tiansztiansz',
+      admin       : ['tiansztiansz'],
+      id          : 'd73ac36844e34ad8d66c3f47077a21e0',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

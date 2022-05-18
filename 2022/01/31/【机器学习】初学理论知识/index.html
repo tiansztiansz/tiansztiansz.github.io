@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+<script data-ad-client="ca-pub-3200468627061889" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3200468627061889"
+     crossorigin="anonymous"></script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tiansztiansz.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="机器学习：初学理论知识">
+<meta property="og:url" content="https://tiansztiansz.github.io/2022/01/31/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91%E5%88%9D%E5%AD%A6%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="宁静致远的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-31T06:00:09.084Z">
+<meta property="article:modified_time" content="2022-01-31T06:17:19.976Z">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://tiansztiansz.github.io/2022/01/31/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91%E5%88%9D%E5%AD%A6%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>机器学习：初学理论知识 | 宁静致远的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宁静致远的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">65</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">160</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tiansztiansz.github.io/2022/01/31/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91%E5%88%9D%E5%AD%A6%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宁静致远的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习：初学理论知识
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-31 14:00:09 / 修改时间：14:17:19" itemprop="dateCreated datePublished" datetime="2022-01-31T14:00:09+08:00">2022-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a><span id="more"></span>基础知识</h2><h3 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h3><p>通过算法使得机器能从大量数据中学习规律从而对新的样本做决策。（相当于构建一个映射函数）</p>
+<h3 id="常见的机器学习问题"><a href="#常见的机器学习问题" class="headerlink" title="常见的机器学习问题"></a>常见的机器学习问题</h3><p>回归（线性拟合）、分类、聚类（多分类）</p>
+<h3 id="机器学习研究的主要内容"><a href="#机器学习研究的主要内容" class="headerlink" title="机器学习研究的主要内容"></a>机器学习研究的主要内容</h3><p>在计算机上从数据中产生 “ 模型 ”的算法，即 “ 学习算法”， 我们把经验数据提供给它，它就能基于这些数据产生模型；在面对新的情况时，模型会给我们提供相应的判断</p>
+<h3 id="典型的机器学习过程"><a href="#典型的机器学习过程" class="headerlink" title="典型的机器学习过程"></a>典型的机器学习过程</h3><p>先对训练数据进行类别标记，然后使用学习算法对其进行训练，最后得到模型（决策树、神经网络、支持向量机、Boosting、贝叶斯网等）</p>
+<h3 id="常见的机器学习类型"><a href="#常见的机器学习类型" class="headerlink" title="常见的机器学习类型"></a>常见的机器学习类型</h3><p>（1）监督学习（学习准则为期望风险最小化、最大似然估计）</p>
+<p>（2）无监督学习（最大似然估计、最小重构错误）</p>
+<p>（3）强化学习（策略评估、策略改进）</p>
+<h3 id="机器学习发展阶段"><a href="#机器学习发展阶段" class="headerlink" title="机器学习发展阶段"></a>机器学习发展阶段</h3><p>第一阶段：推理期（自动定理证明系统）；</p>
+<p>第二阶段：知识期（专家系统）；</p>
+<p>第三阶段：学习期（让系统自己学）</p>
+<h3 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h3><p>找到与训练集“匹配”的模型——拟合（分类界线，曲面）</p>
+<h3 id="监督学习分类：有标签；非监督学习分类：无标签"><a href="#监督学习分类：有标签；非监督学习分类：无标签" class="headerlink" title="监督学习分类：有标签；非监督学习分类：无标签"></a>监督学习分类：有标签；非监督学习分类：无标签</h3><h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><p>（1）一般原则：奥卡姆剃刀：尽可能简单</p>
+<p>（2）任何一个有效的机器学习算法必有其偏好。学习算法的归纳偏好是否与问题本身匹配</p>
+<h3 id="没有免费的午餐定理（NFL定理）"><a href="#没有免费的午餐定理（NFL定理）" class="headerlink" title="没有免费的午餐定理（NFL定理）"></a>没有免费的午餐定理（NFL定理）</h3><p>一个算法a若在某些问题上比另一个算法b好，则必存在另一些问题，b比a好。总误差与学习算法无关，所有算法一样好</p>
+<h3 id="机器学习不等于优化"><a href="#机器学习不等于优化" class="headerlink" title="机器学习不等于优化"></a>机器学习不等于优化</h3><p>过拟合：经验风险最小化原则很容易导致模型在训练集上错误率很低，但是在未知数据上错误率很高。是由于训练数据少和噪声等原因造成的。</p>
+<h2 id="模型评估与选择"><a href="#模型评估与选择" class="headerlink" title="模型评估与选择"></a>模型评估与选择</h2><h3 id="泛化误差：在“未来”样本上的误差，越小越好"><a href="#泛化误差：在“未来”样本上的误差，越小越好" class="headerlink" title="泛化误差：在“未来”样本上的误差，越小越好"></a>泛化误差：在“未来”样本上的误差，越小越好</h3><p>经验误差：在训练集上的误差，亦称“训练误差”，不是越小越好，会导致过拟合</p>
+<h3 id="模型选择的三个关键问题"><a href="#模型选择的三个关键问题" class="headerlink" title="模型选择的三个关键问题"></a>模型选择的三个关键问题</h3><p>如何获得测试结果？（评估方法）</p>
+<p>如何评估性能优劣？（性能度量）</p>
+<p>如何判断实质差别？（比较检验）</p>
+<h3 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h3><p>关键：怎么获得“测试集”（测试集应该与训练集“互斥”）</p>
+<p>常见方法：</p>
+<p>（1）留出法（拥有的数据集=训练集+测试集）</p>
+<p>保持数据分布一致性（如分层采样，保持样本的类别比例）</p>
+<p>多次重复划分（例如: 100次随机划分）</p>
+<p>测试集不能太大、不能太小 (例如：1/5~1/3)</p>
+<p>（2）k-折交叉验证法（若 k = m，则得到“留一法”LOO，即每个小子集中分出一个测试集）</p>
+<p>数据集D划分为k个大小相似的互斥子集，在小子集中分出训练集和测试集</p>
+<p>（留出法和交叉验证法保留了一部分样本用于测试，因此实际评估的模型所使用的训练集比D小，这会引入一些因训练样本规模不同而导致的估计偏差。留一法受训练样本规模变化的影响较小，似计算复杂度又太高。）</p>
+<p>（3）自助法：训练集与原样本集同规模，可减少训练样本规模不同造成的影响，同时还能比较高效地进行实验估计</p>
+<p>以自助采样法为基础。给定包含m个样本的数据集a，对其进行采样产生数据集b。即每次随机从a中挑选一个样本，将其拷贝放入b中，然后再将该样本放回初始数据集a中，使得该样本在下次采样时仍有可能被采到，这个过程重复执行m次后，就得到了包含m个样本的数据集b。最后有总数据量1/3的、没在训练集中出现的样本用于测试，这称为“包外估计”</p>
+<h3 id="“调参”与最终模型"><a href="#“调参”与最终模型" class="headerlink" title="“调参”与最终模型"></a>“调参”与最终模型</h3><p>（1）算法的参数（超参数）：人工设定</p>
+<p>（2）模型的参数：学习确定</p>
+<p>（3）调参过程相似：先产生若干模型，然后基于某种评估方法进行选择</p>
+<p>（4）参数调得好不好对性能往往对最终性能有关键影响</p>
+<p>（5）算法参数选定后，要用“训练集+验证集”重新训练最终模型</p>
+<h3 id="超参数优化"><a href="#超参数优化" class="headerlink" title="超参数优化"></a>超参数优化</h3><p>（1）超参数：层数、每层神经元个数、激活函数、学习率（以及动态调整算法）、正则化系数、mini-batch 大小</p>
+<p>（2）优化方法：网格搜索、随机搜索、贝叶斯优化、动态资源分配、神经架构搜索</p>
+<h3 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h3><p>（1）是衡量模型泛化能力的评价标准，还反映任务的需求</p>
+<p>（2）回归任务常用均方误差</p>
+<p>（3）错误率、精度（或者可以认为时正确率，即1-错误率）</p>
+<p>（4）查准率；查全率：以查准率为纵轴、查全率为横轴，得到查准率-查全率曲线（P-R曲线），在P-R图中，若一曲线完全包住另一条曲线，则前者更优</p>
+<p>（5）平衡点（BEP）：曲线上“查准率”=“查全率”时的点，越大则越优</p>
+<p>（6）比 BEP 更常用的 F1 度量；若对查准率/查全率有不同偏好，当β大于1时查全率影响更大，小于1时则为查准率</p>
+<p>（7）比较检验：得到评估结果后，不可以直接比较以评判优劣。因为测试性能不等于泛化性能；测试性能随着测试集的变化而变化；很多机器学习算法有一定的随机性（要通过多次重复留出法或交叉检验法等进行多次训练/测试，例如检验）</p>
+<h3 id="偏差-方差分解："><a href="#偏差-方差分解：" class="headerlink" title="偏差-方差分解："></a>偏差-方差分解：</h3><p>对回归任务，泛化误差可通过“偏差-方差分解”拆解为：</p>
+<p>（1）期望输出与真实输出的差别</p>
+<p>（2）同样大小的训练集的变动，所导致的性能变化</p>
+<p>（3）训练样本的标记与真实标记的区别</p>
+<p>泛化性能是由学习算法的能力、数据的充分性以及学习任务难度共同决定</p>
+<h3 id="模型选择"><a href="#模型选择" class="headerlink" title="模型选择"></a>模型选择</h3><p>（1）拟合能力强的模型一般复杂度会比较高，容易过拟合，泛化能力变差。</p>
+<p>（2）如果限制模型复杂度，降低拟合能力，可能会欠拟合。</p>
+<p>集成模型：一种有效的降低方差的方法</p>
+<h3 id="偏差-方差窘境"><a href="#偏差-方差窘境" class="headerlink" title="偏差-方差窘境"></a>偏差-方差窘境</h3><p>（1）训练不足时，学习器拟合能力不强，偏差主导</p>
+<p>（2）随着训练程度加深，学习器拟合能力逐渐增强，方差逐渐主导</p>
+<p>（3）训练充足后，学习器的拟合能力很强，方差主导</p>
+<h3 id="PAC学习理论分析在什么条件下可以学习到一个近似正确的分类器"><a href="#PAC学习理论分析在什么条件下可以学习到一个近似正确的分类器" class="headerlink" title="PAC学习理论分析在什么条件下可以学习到一个近似正确的分类器"></a>PAC学习理论分析在什么条件下可以学习到一个近似正确的分类器</h3><p>如果希望模型的假设空间越大，泛化错误越小，其需要的样本数量越多。<br>第三章 线性模型<br>1、线性模型：</p>
+<p>线性模型试图学得一个通过属性的线性组合来进行预测的函数。有分类、回归（线性回归、多元线性回归）。特点：简单、基本、可理解性好</p>
+<p>（1）多元线性回归涉及矩阵求逆，若不满秩，则需要求助于归纳偏好，或引入正则化（在现实任务中往往不满秩）</p>
+<p>（2）线性模型的变化：令预测值逼近一般情况下的非线性y，拟合曲线为非直线，则得到对数线性回归</p>
+<p>（3）广义线性模型：令联系函数为对数函数，得到对数线性回归</p>
+<p>（4）二分类任务（0或1）：理想的是单位阶跃函数，其替代函数为对数几率函数（对率函数）</p>
+<p>（5）对数几率回归（对率回归，是分类学习算法）：以对率函数为联系函数，反映了x作为正例的相对可能性。特点：无需事先假设数据分布；可得到“类别”的近似概率预测；可直接应用现有数据优化算法求最优解</p>
+<p>高阶可导连续凸函数，可用经典的数值优化方法，如梯度下降法/牛顿法</p>
+<p>2、线性模型做“分类”</p>
+<p>分类：直接做分类，用最大似然、交叉熵</p>
+<p>回归：广义线性模型：通过“联系函数”，例如对率回归</p>
+<p>两个概率分布，一般可用交叉熵来衡量它们的差异。交叉熵损失函数也就是负对数似然函数</p>
+<p>3、线性判别分析（LDA）：</p>
+<p>（1）将样例投影到一条直线（低维空间），是一种“监督降维”技术</p>
+<p>（2）LDA的目标（最大化广义瑞利商）。同样例的投影点尽可能接近，异样例的投影点尽可能远离</p>
+<p>（3）多分类LDA实现方法：采用全局散度矩阵St，类内散度矩阵Sw、类间散度矩阵Sb中的任意两个。（St=Sw+Sb）</p>
+<h3 id="多分类学习"><a href="#多分类学习" class="headerlink" title="多分类学习"></a>多分类学习</h3><p>4.1、拆解法：将一个多分类任务拆分为若干个二分类任务求解</p>
+<p>（1）训练N(N-1)/2个分类器，存储开销和测试时间大训练只用两个类的样例，训练时间短（2个比较）</p>
+<p>（2）训练N个分类器，存储开销和测试时间小训练用到全部训练样例，训练时间长（1与n个比较）</p>
+<p>预测性能取决于具体数据分布，多数情况下两者差不多。若仅有一个分类器预测为正类，则对应的类別标记 作为最终分类结果；若有多个分类器预测为正类，则通常考虑各分类器的预测置信度，选择罝信度最大的类别标记作为分类结果</p>
+<p>4.2、纠错输出码（ECOC）</p>
+<p>多对多：将若干类作为正类，若干类作为反类（常用方法：纠错输出码）</p>
+<p>（1）编码：对N个类别做M次划分，每次将一部分类别划分为正类，一部分划分为反类，则有M个二类任务：每类对应一个长为M的编码</p>
+<p>（2）解码：测试样本交给M个分类器预测，得到长为M的预测结果编码</p>
+<p>编码和解码距离最小的类为最终结果</p>
+<p>ECOC编码对分类器错误有一定的容忍和修正能力，编码越长、纠错能力越强（距离变化不大）</p>
+<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><h3 id="决策树模型："><a href="#决策树模型：" class="headerlink" title="决策树模型："></a>决策树模型：</h3><p>（1）内部结点：某个属性上的“测试”</p>
+<p>（2）分支：测试的一种可能结果</p>
+<p>（3）叶节点：预测结果</p>
+<p>（4）学习过程：通过对训练样本的分析来确定“划分属性”</p>
+<p>（5）预测过程：将测试示例从根结点开始，沿着划分属性所构成的“判定测试序列”下行，直到叶结点</p>
+<h3 id="决策树简史"><a href="#决策树简史" class="headerlink" title="决策树简史"></a>决策树简史</h3><p>(1)     第一个决策树算法：CLS</p>
+<p>(2)     使决策树受到关注、成为机器学习主流技术的算法：ID3</p>
+<p>(3)     最常用的决策树算法：C4.5</p>
+<p>(4)     可以用于回归任务的决策树算法：CART</p>
+<p>(5)     基于决策树的最强大算法：RF</p>
+<h3 id="三种停止划分条件："><a href="#三种停止划分条件：" class="headerlink" title="三种停止划分条件："></a>三种停止划分条件：</h3><p>(1) 当前结点包含的样本全属于同一类别，无需划分;</p>
+<p>(2) 当前属性集为空, 或是所有样本在所有属性上取值相同，无法划分;</p>
+<p>(3) 当前结点包含的样本集合为空，不能划分.</p>
+<p>决策树算法的核心：从属性集中选择最优划分属性</p>
+<h3 id="信息增益（ID3算法为代表）"><a href="#信息增益（ID3算法为代表）" class="headerlink" title="信息增益（ID3算法为代表）"></a>信息增益（ID3算法为代表）</h3><p>（1）信息熵：用于度量样本集合“纯度”，其值越小，则样本集合的纯度越高，当其等于零时，达到最大</p>
+<p>（2）信息增益：对可取值数目较多的属性有所偏好，其值最大时，则被选为划分属性。缺点时可能会把“编号”也作为一个属性</p>
+<p>（3）增益率（C4.5算法使用）：中和或平衡掉只使用信息增益对属性数目多的偏好，缺点是会对取值数目少的属性有所偏好。则可以先从候选划分属性中找出信息增益高于平均水平的属性，再从中选取增益率最高的</p>
+<p>（4）基尼指数（衡量纯度的另一种方法）：反映了从 D  中随机抽取两个样例，其类别标记不一致的概率，值越小，则数据集的纯度越高。在候选属性集合中，选取那个使划分后基尼指数最小的属性，在CART算法中使用</p>
+<h3 id="划分选择-vs-剪枝-对泛化性能的影响"><a href="#划分选择-vs-剪枝-对泛化性能的影响" class="headerlink" title="划分选择 vs. 剪枝 对泛化性能的影响"></a>划分选择 vs. 剪枝 对泛化性能的影响</h3><p>(1)     划分选择的各种准则虽然对决策树的尺寸有较大影响，但对泛化性能的影响很有限</p>
+<p>(2)     剪枝方法和程度对决策树泛化性能的影响更为显著</p>
+<p>(3)     剪枝是决策树对付“过拟合”的主要手段</p>
+<p>预剪枝：提前终止某些分支的生长</p>
+<p>后剪枝：生成一棵完全树，再“回头”剪枝</p>
+<p>剪枝过程中需用测试集来评估剪枝前后决策树的优劣，划分后精度增大才允许划分</p>
+<p>仅有一层划分的决策树，称为“决策树桩”</p>
+<h3 id="预剪枝-vs-后剪枝"><a href="#预剪枝-vs-后剪枝" class="headerlink" title="预剪枝 vs. 后剪枝"></a>预剪枝 vs. 后剪枝</h3><p>（1）时间开销：</p>
+<p>预剪枝：训练时间开销降低，测试时间开销降低</p>
+<p>后剪枝：训练时间开销增加很多，测试时间开销降低</p>
+<p>（2）过/欠拟合风险：</p>
+<p>预剪枝：过拟合风险降低，欠拟合风险增加</p>
+<p>后剪枝：过拟合风险降低，欠拟合风险很小，基本不变</p>
+<p>泛化性能：后剪枝通常优于预剪枝</p>
+<h3 id="连续值"><a href="#连续值" class="headerlink" title="连续值"></a>连续值</h3><p>基本思路：连续属性离散化（常用二分法，同时是C4.5决策树算法采用的机制）</p>
+<p>按离散情况求增益，和其他属性的增益进行比较，最终确定最优划分属性</p>
+<h3 id="从“树”到“规则”"><a href="#从“树”到“规则”" class="headerlink" title="从“树”到“规则”"></a>从“树”到“规则”</h3><p>一棵决策树对应于一个“规则集”，每个从根结点到叶结点的分支路径对应于一条规则</p>
+<p>好处：改善可理解性；进一步提升泛化能力（C4.5Rule 的泛化能力通常优于 C4.5决策树）</p>
+<h3 id="轴平行划分"><a href="#轴平行划分" class="headerlink" title="轴平行划分"></a>轴平行划分</h3><p>（1）单变量决策树：在每个非叶结点仅考虑一个划分属性。产生“轴平行”分类面</p>
+<p>曲线分类边界（非常多段划分）：SVM或神经网络模型产生</p>
+<p>（2）多变量决策树：每个非叶结点不仅考虑一个属性（例如“斜决策树”不是为每个非叶结点寻找最优划分属性，而是建立一个线性分类器），更复杂的“混合决策树”甚至可以在结点嵌入神经网络或其他非线性模型</p>
+<h3 id="决策树的优缺点"><a href="#决策树的优缺点" class="headerlink" title="决策树的优缺点"></a>决策树的优缺点</h3><p>优点：计算复杂度不高，不需要预处理数据，输出结果易于理解，对中间值的缺失不敏感。</p>
+<p>缺点：会产生过拟合问题，输入数据的微小波动会引起输出的大幅变化， 训练时间长。</p>
+<h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><h3 id="什么时神经网络（学习模型）"><a href="#什么时神经网络（学习模型）" class="headerlink" title="什么时神经网络（学习模型）"></a>什么时神经网络（学习模型）</h3><p>（1）神经网络是一个具有适应性的简单单元组成的广泛并行互联的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。</p>
+<p>（2）神经网络的学习过程：根据训练数据来调整神经元之间的“连接权”以及每个功能神经元的阈值（神经网络就是为了学习连接权和阈值）</p>
+<h3 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h3><p>（1）理想激活函数是阶跃函数 , 0表示抑制神经元，而1表示激活神经元</p>
+<p>（2）阶跃函数具有不连续、不光滑等不好的性质 , 常用的是 Sigmoid 函数</p>
+<h3 id="多层前馈网络结构"><a href="#多层前馈网络结构" class="headerlink" title="多层前馈网络结构"></a>多层前馈网络结构</h3><p>（1）多层网络：包含隐层的网络</p>
+<p>（2）前馈网络：神经元之间不存在同层连接也不存在跨层连接，即网络中无环或者回路。</p>
+<p>隐层和输出层神经元亦称“功能单元”，无隐藏层的又称“感知机“</p>
+<p>多层前馈网络有强大的表示能力，只需一个包含足够多神经元的隐层 , 多层前馈神经网络就能以任意精度逼近任意复杂度的连续函数，可用“试错法”设置隐层神经元数</p>
+<h3 id="神经网络发展"><a href="#神经网络发展" class="headerlink" title="神经网络发展"></a>神经网络发展</h3><p>(1)     萌芽期：M-P模型、Hebb学习规则</p>
+<p>(2)     繁荣期：感知机、Adaline</p>
+<p>(3)     冰河期</p>
+<p>(4)     繁荣期：Hopfield、BP、SVM及统计学习兴起</p>
+<p>(5)     沉寂期</p>
+<p>(6)     繁荣期：深度学习</p>
+<p>单层神经网络无法解决非线性不可分问题</p>
+<h3 id="误差逆传播算法（BP）"><a href="#误差逆传播算法（BP）" class="headerlink" title="误差逆传播算法（BP）"></a>误差逆传播算法（BP）</h3><p>最成功、最常用的神经网络算法，可被用于多种任务（不仅限于分类）</p>
+<p>（1）标准BP算法：每次针对单个训练样例更新权值与阈值；参数更新频繁 , 不同样例可能抵消 , 需要多次迭代</p>
+<p>（2）累积 BP 算法：其优化目标是最小化整个训练集上的累计误差；读取整个训练集一遍才对参数进行更新 , 参数更新频率较低</p>
+<p>累计误差下降到一定程度后 , 进一步下降会非常缓慢, 这时标准BP算法往往会获得较好的解, 尤其当训练集非常大时效果更明显.</p>
+<p>（3）缓解过拟合（BP算法常常导致过拟合）</p>
+<p>主要策略：</p>
+<p>一、早停：若训练误差连续 a 轮的变化小于 b, 则停止训练(a、b为常数）；使用验证集：若训练误差降低、验证误差升高 , 则停止训练</p>
+<p>二、正则化：在误差目标函数中增加一项描述网络复杂度</p>
+<p>偏好比较小的连接权和阈值，使网络输出更“光滑”。权重参数大，模型更复杂，容易过拟合。</p>
+<h3 id="全局最小-vs-局部极小"><a href="#全局最小-vs-局部极小" class="headerlink" title="全局最小 vs. 局部极小"></a>全局最小 vs. 局部极小</h3><p>神经网络的训练过程可看作一个参数寻优过程，存在多个“局部极小”，只有一个“全局最小”</p>
+<p>（1）“跳出”局部极小的常见策略：</p>
+<p>1）不同的初始参数：相当于从多个不同的初始点开始搜索，这样可能会陷入不同的局部极小，从中进行选择有可能获得更接近全局最小的结果</p>
+<p>2）模拟退火：每一步都以一定的概率接受比当前解更差的结果，从而有助于“跳出”局部极小，在每步迭代过程中，接受“次优解”的概率要随着时间的推移而逐渐降低，从而保证算法稳定</p>
+<p>3）随机梯度下降：在计算梯度时加入随机因素，即使陷入局部极小点，它计算出的梯度仍可能不为零，这样就有机会跳出局部极小继续搜索</p>
+<p>4）遗传算法：训练神经网络以更好地逼近全局最小</p>
+<h3 id="其他常见神经网络模型"><a href="#其他常见神经网络模型" class="headerlink" title="其他常见神经网络模型"></a>其他常见神经网络模型</h3><p>（1）RBF（径向基函数）神经网络：分类任务中除BP之外最常用；</p>
+<p>训练：确定神经元中心（随机采样、聚类）；利用BP算法等确定参数</p>
+<p>（2）ART：“竞争学习”的代表</p>
+<p>由比较层、识別层、 识别阈值和重置模块构成。其中，比较层负责接收输入样本，并将其传递给识別层神经元。识别层每个神经元对应一个模式类。</p>
+<p>计算输入向量与每个识別层神经元所对应的模式类的代表向量之间的距离，距离最小者胜。获胜神经元将向其他识别层神经元发送信号，抑制其激活</p>
+<p>若输入向量与获胜神经元所对应的代表向量之间的相似度大于识别阈值，则当前输入样本将被归为该代表向量所属类別，同时，网络连接权将会更新，使得以后在接收到相似输入样本时该模式类会计算出更大的相似度，从而使该获胜神经元有更大可能获胜</p>
+<p>若相似度不大于识别阈值，则重置模块将在识别层增设一个新的神经元，其代表向量就设置为当前输入向量</p>
+<p>当识别阈值较高时，输入样本将会被分成比较多、比较精细的模式类，而如果识别阈值较低.则会产生比较少、比较祖略的模式类。</p>
+<p>缓解可塑性-稳定性窘境，既有学习新知识的能力，在学习新知识时还能保持对旧知识的记忆。</p>
+<p>（3）SOM:(自组织特征映射)：最常用的聚类方法之一。</p>
+<p>竞争型的无监督（无标签）神经网络</p>
+<p>将高维数据映射到低维空间（通常为 2维）, 高维空间中相似的样本点映射到网络输出层中邻近神经元</p>
+<p>每个神经元拥有一个权向量</p>
+<p>目标：为每个输出层神经元找到合适的权向量以保持拓扑结构</p>
+<p>SOM的训练过程：在接受到一个训练样本呢后，每个输出层神经元会计算该样本与自身携带的权向量之间的距离，距离最近的神经元成为竞争获胜者，称为最佳匹配单元。然后，最佳匹配单元及其邻近神经元的权向量将被调整，以使得这些权向量与当前输入样本的距离缩小，这个过程不断迭代，直至收敛。</p>
+<p>网络接收输入样本后，将会确定输出层的“获胜”神经元</p>
+<p>获胜神经元的权向量将向当前输入样本移动</p>
+<p>不仅获胜神经元本身要调整权向量，它周围的神经元在其影响下也要程度不同的调整权向量</p>
+<p>优胜领域开始定的很大，但是其大小随着训练次数的增加不断收缩，最终收缩到半径为0。</p>
+<p>（4）级联相关网络（CC）：“构造性”神经网络的代表</p>
+<p>一般的神经网络模型通常假定网络结构是事先固定的，训练的目的是利用训练样本来确定合适的连接权、阈值等参数。而结构自适应网络则将网络结构也当作学习的目标之一，并希望能在训练过程中找到最符合数据特点的网络结构，级联相关网络是结构自适应网络的重要代表。</p>
+<p>构造性神经网络： 将网络的结构也当做学习的目标之一， 希望在训练过程中找到适合数据的网络结构</p>
+<p>训练：</p>
+<p>开始时只有输入层和输出层</p>
+<p>级联：新的隐层结点逐渐加入，从而创建起层级结构</p>
+<p>相关：最大化新结点的输出与网络误差之间的相关性</p>
+<p>预选神经元的训练目标是最大化新神经元的输出和网络训练误差之间的相关性</p>
+<p>（6）Elman 网络</p>
+<p>递归神经网络（RNN)</p>
+<p>有环形结构, 可让使一些神经元的输出反馈回来作为输入</p>
+<p>t 时刻网络的输出状态：由t 时刻的输入状态和t-1 时刻的网络状态共同决定</p>
+<p>Elman 网络是最常用的递归神经网络之一</p>
+<p>结构与前馈神经网络很相似 , 但隐层神经元的输出被反馈回来</p>
+<p>使用推广的BP算法训练</p>
+<p>目前在自然语言处理等领域常用的 LSTM 网络，是一种复杂得多的递归神经网络</p>
+<p>（7）最常用的深度学习模型：卷积神经网络（CNN）</p>
+<p>每个卷积层包含多个特征映射 , 每个特征映射是一个由多个神经元构成的“平面” ,通过一种卷积滤波器提取输入的一种特征</p>
+<p>采样层亦称“汇聚 (pooling)层” , 其作用是基于局部相关性原理进行亚采样 ,从而在减少数据量的同时保留有用信息</p>
+<p>连接层就是传统神经网络对隐层与输出层的全连接</p>
+<p>（8）深度学习</p>
+<p>提升模型复杂度；提升学习能力</p>
+<p>增加隐层神经元数目 (模型宽度 )</p>
+<p>增加隐层数目 (模型深度 )</p>
+<p>提升模型复杂度  增加过拟合风险，增加训练难度</p>
+<p>解决过拟合风险：使用大量训练数据</p>
+<p>训练困难：使用若干启发式诀窍</p>
+<p>增加隐层数目比增加隐层神经元数目更有效</p>
+<p>不仅增加了拥有激活函数的神经元数, 还增加了激活函数嵌套的层数</p>
+<p>误差梯度在多隐层内传播时 ,往往会发散而不能收敛到稳定状态，因此，难以直接用经典BP算法训练</p>
+<h3 id="常用诀窍"><a href="#常用诀窍" class="headerlink" title="常用诀窍"></a>常用诀窍</h3><p>预训练 +  微调</p>
+<p>预训练: 监督逐层训练，每次训练一层隐结点</p>
+<p>微调：预训练全部完成后, 对全网络进行微调训练，通常使用 BP算法，可视为将大量参数分组，对每组先找到较好的局部配置，再全局寻优</p>
+<p>权共享</p>
+<p>一组神经元使用相同的连接权值。减少需优化的参数</p>
+<p>Dropout</p>
+<p>在每轮训练时随机选择一些隐结点令其权重不被更新(下一轮可能被更新 )</p>
+<p>可能：降低 Rademacher 复杂度</p>
+<p>ReLU</p>
+<p>将 Sigmoid 激活函数修改为修正线性函数</p>
+<p>求导容易；可能：缓解梯度消失现象</p>
+<h3 id="深度学习最重要的特征：-表示学习-、联合优化"><a href="#深度学习最重要的特征：-表示学习-、联合优化" class="headerlink" title="深度学习最重要的特征： 表示学习 、联合优化"></a>深度学习最重要的特征： 表示学习 、联合优化</h3><h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h2><h3 id="间隔与支持向量（SVM）："><a href="#间隔与支持向量（SVM）：" class="headerlink" title="间隔与支持向量（SVM）："></a>间隔与支持向量（SVM）：</h3><p>（1）支持向量机在文本分类任务中显示出卓越性能，成为了机器学习的主流技术（统计学习）</p>
+<p>（2）线性模型：在样本空间中寻找一个超平面, 将不同类别的样本分开.</p>
+<p>（3）将训练样本分开的超平面可能有很多，应选择”正中间”, 容忍性好, 鲁棒性高, 泛化能力最强的</p>
+<p>（4）SVM想要的就是找到各类样本点到超平面的距离最远，也就是找到最大间隔超平面（支撑向量），任意超平面可以用线性方程来描述</p>
+<h3 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>（1）使用拉格朗日乘子法可得到其“ 对偶问题”</p>
+<p>（2）高效求解方法 – SMO</p>
+<p>基本思路：不断执行如下两个步骤直至收敛.</p>
+<p>第一步：选取一对需更新的变量  和    .</p>
+<p>第二步：固定 和 以外的参数, 求解对偶问题更新  和</p>
+<p>仅考虑  和 时，用一个变量表示另一个变量, 回代入对偶问题可得一个单变量的二次规划, 该问题具有闭式解。偏移项b通过支持向量来确定</p>
+<p>（3）支持向量机解的稀疏性: 训练完成后, 大部分的训练样本都不需保留, 最终模型仅与支持向量有关.</p>
+<p>（4）线性不可分：若不存在一个能正确划分两类样本的超平面（线性），则将样本从原始空间映射到一个更高维的特征空间, 使得样本在这个特征空间内线性可分.</p>
+<p>（5）核支持向量机</p>
+<p>x映射（核映射），模型中有内积的形式</p>
+<h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>基本想法：不显式地设计核映射, 而是设计核函数.即xi与xj在特征空间的内积等于它们在原始样本空间中通过函数  计算的结果。有了这样的函数，就不必直接去计算高维甚至无穷维特征空间中的内积</p>
+<p>（1）在不知道特征映射的形式时，我们并不知道什么样的核函数是合适的.若核函数选择不合适，则意味着将样本映射到了一个不合适的特征空间，很可能导致性能不佳</p>
+<p>（2）常用核函数：线性核、多项式核、高斯核、拉普拉斯核、Sigmoid核</p>
+<p>（3）核函数选择成为svm（支持向量机）的最大变数</p>
+<p>经验：文本数据使用线性核，情况不明使用高斯核</p>
+<p>核函数的性质：</p>
+<p>1 核函数的线性组合仍为核函数</p>
+<p>2 核函数的直积仍为核函数</p>
+<p>设k(x1,x2)为核函数，则对于任意函数g,  g(x1)k(x1,x2)g(x2)仍为核函数</p>
+<h3 id="软间隔和硬间隔："><a href="#软间隔和硬间隔：" class="headerlink" title="软间隔和硬间隔："></a>软间隔和硬间隔：</h3><p>硬间隔不允许任何样本出现错分的情况，哪怕导致过拟合</p>
+<p>软间隔允许一些样本点跨越间隔边界甚至是超平面（跨越间隔边界，即中间线）</p>
+<p>（1）0/1损失函数（L0/1，分错为1，无误为0）</p>
+<p>基本想法：最大化间隔的同时, 让不满足约束的样本应尽可能少.</p>
+<p>（2）正则化常数C&gt;0，如果C趋于无穷，则等价于要求所有的样本点都分类正确，否则就允许一部分极少的样本分类错误</p>
+<p>（3）存在问题：0/1损失函数非凸，非连续，不易优化</p>
+<p>（4）替代损失：替代损失函数数学性质较好，&lt;0时取值大，&gt;0时取值小，且慢慢趋近于零。可以实现正则项的惩罚目的。</p>
+<p>（5）对偶变量的约束不同，通用二次规划算法、SMO</p>
+<p>硬间隔对偶问题</p>
+<p>软间隔对偶问题</p>
+<h3 id="正则化："><a href="#正则化：" class="headerlink" title="正则化："></a>正则化：</h3><p>结构风险, 描述模型的某些性质：参数复杂度小（L0,1,2正则化），或超平面间隔尽量大</p>
+<p>经验风险, 描述模型与训练数据的契合程度,即训练精度<br>通过替换上面两个部分, 可以得到许多其他学习模型：对数几率回归、最小绝对收缩选择算子(LASSO)</p>
+<p>（1）正则化可理解为一种“罚函数法”，即对不希望得到的结果施以惩罚，从而使得优化过程趋向于希望目标.。Lp范数是常用的正则化项</p>
+<p>L0范数是指向量中非0的元素的个数，希望矩阵的大部分元素都为0，都稀疏</p>
+<p>L1范数（稀疏规则算子）是指向量中各个元素绝对值之和，</p>
+<p>L2范数是指各元素的平方和然后求平方根，其不但可以防止过拟合，还可以让优化求解更稳定和快速（参数变小，模型变简单，模型参数信息变少）</p>
+<h3 id="支持向量回归（SVR，带宽忍或公差带的模型）"><a href="#支持向量回归（SVR，带宽忍或公差带的模型）" class="headerlink" title="支持向量回归（SVR，带宽忍或公差带的模型）"></a>支持向量回归（SVR，带宽忍或公差带的模型）</h3><p>特点: 允许模型输出和实际输出间存在一定的偏差，缓解特征空间中线性不可分的问题</p>
+<p>落入间隔带的样本不计算损失</p>
+<p>（1）传统回归模型通常直接基于模型输出于真实输出之间的差别来计算损失，当且仅当模型输出与真实输出完全相同时，损失才为零。支持向量回归则仅当模型输出与真实输出之间的差别绝对值大于一定值时才计算损失</p>
+<p>（2）表示定理：</p>
+<p>无论是支持向量机还是支持向量回归, 学得的模型总可以表示成核函数的线性组合.，从而推导出表示定理</p>
+<p>正则化项一般是模型复杂程度的单调递增函数，因此可以使用模型参数向量的范数来计算。一般的带正则化项和样本损失函数，都可以满足表示定理。</p>
+<p>（3）核线性判别分析</p>
+<p>通过表示定理可以得到很多线性模型的”核化”版本：核SVM、核LDA、核PCA</p>
+<p>核LDA: 先将样本映射到高维特征空间, 然后在此特征空间中做线性判别分析</p>
+<p>（4）支持向量回归与logistics回归对比</p>
+<p>logistic回归的优势主要在于其输出具有自然的概率意义，即在给出预测标记的同时也给出了概率，而SVM的输出不具有概率意义，欲得到概率输出需进行特殊处理.两者的目标相近，通常情形下它们的性能也相当。</p>
+<p>支持向量机是针对二分类任务设计的，对多分类任务要进行专门的推广</p>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h3 id="个体与集成"><a href="#个体与集成" class="headerlink" title="个体与集成"></a>个体与集成</h3><p>集成学习通过构建并结合多个学习器来提升性能（要求学习器好而不同）</p>
+<p>（1）考虑二分类问题，基分类器的错误率=分错个数/总数。通过简单投票法结合T个分类器，超过半数正确则分类就正确（采用符号函数判断）</p>
+<p>（2）假设基分类器的错误率相互独立，则随着集成分类器数目的增加，集成的错误率将指数级下降，最终趋向于0。但错误率不可能互相独立，个体学习器大的“准确性”和“多样性”本身就存在冲突。如何产生“好而不同”的个体学习器是集成学习研究的核心</p>
+<p>（3）集成学习大致可分为两大类：</p>
+<p>Boosting（代表是AdaBoost，每次调整训练数据的样本权重分布）个体学习器间存在强依赖关系、必须串行（根据前面学习器的学习薄弱环节针对性地加强），生成的序列化方法</p>
+<p>个体学习器间不存在强依赖关系、可同时生成的并行化方法，代表是Bagging 和“随机森林RF”（自助采样法）</p>
+<h3 id="Boosting-–-AdaBoost"><a href="#Boosting-–-AdaBoost" class="headerlink" title="Boosting – AdaBoost"></a>Boosting – AdaBoost</h3><p>基学习器的线性组合</p>
+<p>最小化指数损失函数</p>
+<p>使用指数损失函数而不用均方误差损失函数的原因是均方误差损失函数对分类问题的效果不好。而相对于0/ 1损失函数，指数损失函数有更好的数学性质，</p>
+<p>（1）第一个基分类器是通过直接将基学习器算法用于初始数据分布而得，此后迭代地生成和，当分类器基于分布产生后，该基分类器地权重应使得最小化指数损失函数。令指数损失函数的导数为0，则得到了分类器权重更行公式</p>
+<p>（2）AdaBoost算法在获得上一轮输出Ht-1之后样本权重分布将进行调整，使下一轮的基学习器ht能纠正 H-1的一些错误</p>
+<p>（3）数据分布的学习</p>
+<p>重赋权法（在训练过程的每一轮中，根据样本分布为每个训练样本重新赋予一个权重）</p>
+<p>重采样法（无法接受带权重样本的基学习器）</p>
+<p>（以上两种做法没有显著的优劣差别）</p>
+<p>重启动，避免训练过程过早停止</p>
+<p>Boosting关注降低偏差，可对泛化性能相当弱的学习器构造出很强的集成学习器</p>
+<h3 id="Bagging与随机森林"><a href="#Bagging与随机森林" class="headerlink" title="Bagging与随机森林"></a>Bagging与随机森林</h3><p>3.1 Bagging发明的思路：</p>
+<p>（1）基学习器尽可能具有较大的差异</p>
+<p>（2）采样只用到了一小部分训练数据，不足以进行有效学习</p>
+<p>（3）使用相互有交叠的采样子集</p>
+<p>对分类任务使用简单投票法，对回归任务使用简单平均法。即每个基学习器使用相同权重的投票、平均。</p>
+<p>3.2 Bagging算法特点：</p>
+<p>（1）高效，时间复杂度低。bagging的复杂度大致为T(O(m)+O(s))（基学习器+投票/平均），由于O(s)很小且T是一个不大的常数，因此训练一个bagging集成与直接使用基学习器的复杂度同阶。</p>
+<p>（2）可使用包外估计：剩下约36.8%的样本可用作验证集来对泛化性能进行“包外估计”。</p>
+<p>3.3 包外样本的作用:</p>
+<p>（1）当基学习器是决策树时，可使用包外样本来辅助剪枝，或用于估计决策树中各结点的后验概率以辅助对零训练样本结点的处理；</p>
+<p>（2）当基学习器是神经网络时，可使用包外样本来辅助早期停止以减小过拟合风险</p>
+<p>3.4 Bagging主要关注降低方差，在不剪枝的决策树、神经网络等易受样本扰动影响的学习器上效果更好。随机森林(RF)是bagging的一个扩展变种，具有采样的随机性和属性选择的随机性。随机森林就是Bagging+决策树的组合（一般使用CART树）。由很多独立的决策树组成的一个森林，每棵树的权重相等，通过投票的方式决定最终的分类结果。</p>
+<p>3.5 随机森林算法主要过程：</p>
+<p>1、样本集的选择</p>
+<p>　  假设原始样本集总共有N个样例，有放回抽样抽取N个样例，得到一个大小为N的训练集。则有被重复抽取的样例，也可能有一次都没有被抽到的样例。共进行k轮的抽取，则每轮抽取的训练集分别为T1,T2,…,Tk。</p>
+<p>2、决策树的生成</p>
+<p>　　使用新的特征集来生成决策树。在训练集的选择和特征的选择上都是随机的，因为这k个决策树之间是相互独立的。</p>
+<p>3、模型的组合</p>
+<p>　　由于生成的k个决策树之间是相互独立的，无需考虑他们的权值，具有相同的权值。对于分类问题，最终的分类结果使用所有的决策树投票来确定最终分类结果；对于回归问题，使用所有决策时输出的均值来作为最终的输出结果。</p>
+<p>4、模型的验证</p>
+<p>　　从原始样本集中选择没有被使用过的样例。将这些未被使用的数据拿来验证最终的模型。</p>
+<p>3.6有监督的学习方法：从一个有限的假设空间中搜索最适合结果，集成学习就是将多个假设空间放到一起来形成一个更好的方案。更好地降低过拟合的问题。集成学习也会给予分类性能好的分类器更高的权重。</p>
+<p>从统计方面来看：泛化性能不佳结合多个学习器则会减小这一风险</p>
+<p>从计算方面来看：降低了陷入糟糕局部极小点的风险</p>
+<p>从表示方面来看：相应的假设空间有所扩大，有可能学得更好的近似</p>
+<h3 id="结合策略"><a href="#结合策略" class="headerlink" title="结合策略"></a>结合策略</h3><p>5.1平均法</p>
+<p>简单平均法是加权平均法的特例.集成学习中的各种结合方法都可以看成是加权平均法的变种或特例。根据重要性进行集成。加权平均法的权重一般是从训练数椐中学习而得，学出的权重不完全可靠。尤其是对规模比较大的集成来说，要学习的权重比较多，较容易导致过拟合. 因此，加权平均法未必一定优于简单平均法。在个体学习器性能相差较大时宜使用加权平均法，而在个体学习器性能相近时宜使用简单平均法。</p>
+<p>5.2投票法</p>
+<p>（1）绝对多数投票法，若某标记得票过半数，则预测为该标记；否则拒绝预测。</p>
+<p>（2）相对多数投票法。预测为得票多的标记，若同时有多个标记获最高票，则从中随机选取—个</p>
+<p>（3）加权投票法</p>
+<p>基于类概率进行结合往往比直接基于类标记进行结合性能更好，若基学习器的类型不同，则其类概率值不能直接进行比较，将类概率输出转化为类标记输出，然后再投票</p>
+<p>不同的学习器类型，指的是不同的学习算法产生的，即异质。</p>
+<p>5.2学习法</p>
+<p>Stacking是学习法的典型代表 。Stacking先从初始数据集训练出初级学习器，然后“生成”一个新数据集用于训练次级学习器。在这个新数据集中，初级学习器的输出被当作样例输入特征，而初始样本的标记仍被当作样例标记。stacking的本质就是找到各个模型的权重。</p>
+<p>k折交叉验证法可以得到k组。都作为次级学习器的样本输入，最终是要学习到多个初级学习器的预测输入与真实标签值之间的映射。</p>
+<p>次级学习器的输入属性表示和次级学习算法对Stacking集成的泛化性能有很大影响。，将初级学习器的输出类概率作为次级学习器的输入属性，用多响应线性回归（MLR) 作为次级学习算法效果较好。</p>
+<h3 id="多样性"><a href="#多样性" class="headerlink" title="多样性"></a>多样性</h3><p>6.1误差-分歧分解</p>
+<p>“分歧”项表征了个体学习器在样本x上的不一致性，反映了个体学习器的多样性。个体学习器准确性越高、多样性越大，则集成越好，则其为“误差-分歧分解”</p>
+<p>6.2多样性度量</p>
+<p>多样性度量用于度量集成中个体学习器的多样性。对于二分类问题，则联立表得出预测结果</p>
+<p>常见的多样性度量</p>
+<p>不一致度量：值域为[0,1].值越大则多样性越大。</p>
+<p>相关系数：若个体学习器hi与hj无关，则值为0; 若hi与hj 正相关则值为正，否则为负。</p>
+<p>K-统计量：分类器hi与hj在D上完全一致，则K=1; 若它们仅是偶然达成一致，则K=0。K越大，学习器间的多样性越小。</p>
+<p>k-误差图：数据点云的位置越高，则个体分类器准确性越低：点云的位置越靠右，K越大，则个体学习器的多样性越小。</p>
+<p>6.3多样性增强</p>
+<p>常见的增强个体学习器的多样性的方法</p>
+<p>（1）数据样本扰动</p>
+<p>数据样本扰动基于采样法：Bagging中的自助采样法</p>
+<p>对数据样本的扰动敏感的基学习器(不稳定基学习器)：决策树，神经网络等</p>
+<p>对数据样本的扰动不敏感的基学习器(稳定基学习器)：线性学习器，支持向量机，朴素贝叶斯，k近邻等</p>
+<p>数据样本扰动对“不稳定基学习器”很有效</p>
+<p>（2）输入属性扰动</p>
+<p>随机子空间算法输入线性扰动，从初始属性集中抽取出若干个属性子集，再基于每个属性子集训练一个基学习器，因属性数的减少而大幅节省时间开销，由于冗余属性多，减少一些属性后训练出的个体学习器也不至于太差，只包含少量属性，或者冗余属性很少，则不宜使用输入属性扰动法</p>
+<p>（3）输出表示扰动</p>
+<p>对输出表示进行操纵以增强多样性，如“翻转法”随机改变一些训练样本的标记，也可对输出表示进行转化，如“输出调制法”，分类输出转化为回归输出后构建个体学习器，还可以将原任务拆解为多个可同时求解的子任务，如“ECOC法“利用纠错输出码将多分类任务拆解为一系列二分类任务来训练基学习器</p>
+<p>（4）算法参数扰动</p>
+<p>基学习器有参数需进行设置，通过随机设置不同的参数，往往可产生差别较大的个体学习器</p>
+<p>例如“负相关法”显式地通过正则化项来强制个体神经网络使用不同的参数，将决策树使用的属性选择机制替换成其他的属性选择机制，使用单一学习器时通常需使用交叉验证等方法来确定参数值</p>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><h3 id="聚类任务"><a href="#聚类任务" class="headerlink" title="聚类任务"></a>聚类任务</h3><p>在“无监督学习”任务中研究最多、应用最广.</p>
+<p>聚类目标：将数据集中的样本划分为若干个通常不相交的子集（“簇”）</p>
+<p>聚类既可以作为一个单独过程（用于找寻数据内在的分布结构），也可作为分类等其他学习任务的前驱过程.</p>
+<h3 id="性能度量-1"><a href="#性能度量-1" class="headerlink" title="性能度量"></a>性能度量</h3><p>聚类性能度量（聚类“有效性指标”），聚类结果的“簇内相似度”高，且“簇间相似度”低，这样的聚类效果较好</p>
+<p>（1）外部指标：将聚类结果与某个“参考模型”进行比较。</p>
+<p>Jaccard系数（JC）、FM指数（FMI）、Rand指数（RI）。[0,1]区间内,越大越好.</p>
+<p>（2）内部指标：直接考察聚类结果而不用任何参考模型。</p>
+<p>簇内样本间的平均距离</p>
+<p>样本间的最远距离</p>
+<p>最近样本间的距离</p>
+<p>中心点间的距离</p>
+<p>DB指数（DBI），越小越好</p>
+<p>Dunn指数（DI），越大越好</p>
+<h3 id="距离计算"><a href="#距离计算" class="headerlink" title="距离计算"></a>距离计算</h3><p>距离度量的性质：非负性；同一性；对称性；直递性</p>
+<p>最常用距离：闵可夫斯基距离；p=2: 欧氏距离；p=1：曼哈顿距离</p>
+<p>属性介绍：</p>
+<p>连续属性：在定义域上有无穷多个可能的取值</p>
+<p>离散属性： 在定义域上是有限个可能的取值</p>
+<p>有序属性：例如定义域为{1,2,3}的离散属性，“1”与“2”比较接近、与“3”比较远</p>
+<p>无序属性：例如定义域为{飞机，火车，轮船}这样的离散属性，不能直接在属性值上进行计算</p>
+<p>距离度量：VDM（处理无序属性）</p>
+<p>样本距离度量：MinkovDMp（处理混合属性）、加权距离（样本中不同属性的重要性不同时）</p>
+<h3 id="原型聚类（基于原型的聚类）：假设聚类结构能通过一组原型刻画。"><a href="#原型聚类（基于原型的聚类）：假设聚类结构能通过一组原型刻画。" class="headerlink" title="原型聚类（基于原型的聚类）：假设聚类结构能通过一组原型刻画。"></a>原型聚类（基于原型的聚类）：假设聚类结构能通过一组原型刻画。</h3><p>算法过程：先对原型进行初始化，再对原型进行迭代更新求解。</p>
+<p>几种著名的原型聚类算法：</p>
+<p>（1）k均值算法：最小化平方误差E值刻画了簇内样本围绕簇均值向量的紧密程度，值越小，则簇内样本相似度越高。</p>
+<p>算法流程（迭代优化）：</p>
+<p>初始化每个簇的均值向量</p>
+<p>Repeat（重复）</p>
+<p>       1. （更新）簇划分；</p>
+<p>       2.  计算每个簇的均值向量</p>
+<p>Until（直到） 当前均值向量均未更新</p>
+<p>（2）学习向量量化（LVQ）</p>
+<p>LVQ假设数据样本带有类别标记，学习过程中利用样本的这些监督信息来辅助聚类。LVQ的目标是学得一组n维原型向量，每个原型向量代表一个聚类簇。</p>
+<p>每个原型向量Pt定义了与之相关的一个区域Ri，该区域中每个样本与Pi的距离不大于它与其他原型向量的距离。由此形成了对样本空间的簇划分，该划分通常称为“Voronoi剖分“</p>
+<p>（3）高斯混合聚类</p>
+<p>高斯混合聚类采用概率模型来表达聚类原型：</p>
+<p>多元高斯分布的定义：对n维样本空间中的随机向量x， 若x服从高斯分布，则得到其概率密度函数。</p>
+<p>高斯混合分布的定义：</p>
+<p>由k个分布分量组成，每个分布对应一个高斯分布。其中，与是第i个高斯混合成分的参数。而为相应的“混合系数”，     。</p>
+<p>原型聚类 – 高斯混合聚类</p>
+<p>首先，根据、、……、定义的先验分布选择高斯混合分布，其中为选择第i个混合成分的概率；然后，根据被选择的混合成分的概率密度函数进行采样，从而生成相应的样本</p>
+<p>先以一定概率出现高斯分量，再以一定概率出现该分量生成的样本x。这就是采样过程。</p>
+<p>模型（高斯分量参数）求解：最大化（对数）似然（所有样本同时出现的联合概率）</p>
+<p>每个高斯成分的混合系数由样本属于该成分的平均后验概率确定</p>
+<h3 id="密度聚类（基于密度的聚类）"><a href="#密度聚类（基于密度的聚类）" class="headerlink" title="密度聚类（基于密度的聚类）"></a>密度聚类（基于密度的聚类）</h3><p>假设聚类结构能通过样本分布的紧密程度来确定</p>
+<p>从样本密度的角度来考察样本之间的可连接性，并基于可连接样本不断扩展聚类簇来获得最终的聚类结果</p>
+<p>DBSCAN算法：基于一组“邻域”参数来刻画样本分布的紧密程度。</p>
+<p>基本概念：</p>
+<p>邻域：虚线为邻域</p>
+<p>核心对象：在中心</p>
+<p>密度直达：与核心对象直接相连</p>
+<p>密度可达：与核心对象不直接相连</p>
+<p>密度相连：不直接相连</p>
+<p>“簇“的定义：密度可达关系导出的最大密度相连样本集合（连接性、最大性）</p>
+<p>若x为核心对象，由x密度可达的所有样本组成的集合记为X，则X为满足连接性与最大性的簇</p>
+<p>DBSCAN算法先任选数据集中的一个核心对象为“种子“，再由此出发确定相应的聚类簇，算法再根据给定的领域参数，找出所有核心对象，以任一核心对象为出发点，找出由其密度可达的样本生成聚类簇，直到所有核心对象均被访问过为止</p>
+<h3 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h3><p>层次聚类试图在不同层次对数据集进行划分，从而形成树形的聚类结构。数据集划分既可采用“自底向上”的聚合策略，也可采用“自顶向下”的分拆策略。</p>
+<p>AGNES算法（自底向上的层次聚类算法）</p>
+<p>    首先，将样本中的每一个样本看做一个初始聚类簇，然后在算法运行的每一步中找出距离最近的两个聚类簇进行合并，该过程不断重复，直到达到预设的聚类簇的个数。</p>
+<p>这里两个聚类簇的距离，可以有3种度量方式：最小距离、最大距离、平均距离</p>
+
+    </div>
+
+    
+    
+    
+     
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">---------------------------------------------------------</div>
+    
+</div>
+     <div class="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=7261872754&auto=0&height=430"></iframe>
+      </div>
+   </div>
+ 
+        <div class="reward-container">
+  <div>原创技术分享，您的支持将鼓励我继续创作</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt=" 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt=" 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://tiansztiansz.github.io/2022/01/31/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91%E5%88%9D%E5%AD%A6%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/" title="机器学习：初学理论知识">https://tiansztiansz.github.io/2022/01/31/【机器学习】初学理论知识/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/29/next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB/" rel="prev" title="Next主题配置文件解读">
+      <i class="fa fa-chevron-left"></i> Next主题配置文件解读
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/31/%E5%88%A9%E7%94%A8python%E8%BF%9B%E8%A1%8CAdaBoost%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B/" rel="next" title="利用python进行AdaBoost模型预测">
+      利用python进行AdaBoost模型预测 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+
+
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.1.</span> <span class="nav-text">什么是机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">常见的机器学习问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%A0%94%E7%A9%B6%E7%9A%84%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9"><span class="nav-number">1.3.</span> <span class="nav-text">机器学习研究的主要内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.</span> <span class="nav-text">典型的机器学习过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.5.</span> <span class="nav-text">常见的机器学习类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B1%95%E9%98%B6%E6%AE%B5"><span class="nav-number">1.6.</span> <span class="nav-text">机器学习发展阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="nav-number">1.7.</span> <span class="nav-text">学习目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E5%88%86%E7%B1%BB%EF%BC%9A%E6%9C%89%E6%A0%87%E7%AD%BE%EF%BC%9B%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E5%88%86%E7%B1%BB%EF%BC%9A%E6%97%A0%E6%A0%87%E7%AD%BE"><span class="nav-number">1.8.</span> <span class="nav-text">监督学习分类：有标签；非监督学习分类：无标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E7%BA%B3%E5%81%8F%E5%A5%BD"><span class="nav-number">1.9.</span> <span class="nav-text">归纳偏好</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E5%AE%9A%E7%90%86%EF%BC%88NFL%E5%AE%9A%E7%90%86%EF%BC%89"><span class="nav-number">1.10.</span> <span class="nav-text">没有免费的午餐定理（NFL定理）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8D%E7%AD%89%E4%BA%8E%E4%BC%98%E5%8C%96"><span class="nav-number">1.11.</span> <span class="nav-text">机器学习不等于优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="nav-number">2.</span> <span class="nav-text">模型评估与选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%9B%E5%8C%96%E8%AF%AF%E5%B7%AE%EF%BC%9A%E5%9C%A8%E2%80%9C%E6%9C%AA%E6%9D%A5%E2%80%9D%E6%A0%B7%E6%9C%AC%E4%B8%8A%E7%9A%84%E8%AF%AF%E5%B7%AE%EF%BC%8C%E8%B6%8A%E5%B0%8F%E8%B6%8A%E5%A5%BD"><span class="nav-number">2.1.</span> <span class="nav-text">泛化误差：在“未来”样本上的误差，越小越好</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E7%9A%84%E4%B8%89%E4%B8%AA%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">模型选择的三个关键问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">评估方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9C%E8%B0%83%E5%8F%82%E2%80%9D%E4%B8%8E%E6%9C%80%E7%BB%88%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.4.</span> <span class="nav-text">“调参”与最终模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96"><span class="nav-number">2.5.</span> <span class="nav-text">超参数优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F"><span class="nav-number">2.6.</span> <span class="nav-text">性能度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%8F%E5%B7%AE-%E6%96%B9%E5%B7%AE%E5%88%86%E8%A7%A3%EF%BC%9A"><span class="nav-number">2.7.</span> <span class="nav-text">偏差-方差分解：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="nav-number">2.8.</span> <span class="nav-text">模型选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%8F%E5%B7%AE-%E6%96%B9%E5%B7%AE%E7%AA%98%E5%A2%83"><span class="nav-number">2.9.</span> <span class="nav-text">偏差-方差窘境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PAC%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90%E5%9C%A8%E4%BB%80%E4%B9%88%E6%9D%A1%E4%BB%B6%E4%B8%8B%E5%8F%AF%E4%BB%A5%E5%AD%A6%E4%B9%A0%E5%88%B0%E4%B8%80%E4%B8%AA%E8%BF%91%E4%BC%BC%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%88%86%E7%B1%BB%E5%99%A8"><span class="nav-number">2.10.</span> <span class="nav-text">PAC学习理论分析在什么条件下可以学习到一个近似正确的分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.11.</span> <span class="nav-text">多分类学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-number">3.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">决策树模型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%80%E5%8F%B2"><span class="nav-number">3.2.</span> <span class="nav-text">决策树简史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E5%81%9C%E6%AD%A2%E5%88%92%E5%88%86%E6%9D%A1%E4%BB%B6%EF%BC%9A"><span class="nav-number">3.3.</span> <span class="nav-text">三种停止划分条件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%EF%BC%88ID3%E7%AE%97%E6%B3%95%E4%B8%BA%E4%BB%A3%E8%A1%A8%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">信息增益（ID3算法为代表）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E5%88%86%E9%80%89%E6%8B%A9-vs-%E5%89%AA%E6%9E%9D-%E5%AF%B9%E6%B3%9B%E5%8C%96%E6%80%A7%E8%83%BD%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">3.5.</span> <span class="nav-text">划分选择 vs. 剪枝 对泛化性能的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%89%AA%E6%9E%9D-vs-%E5%90%8E%E5%89%AA%E6%9E%9D"><span class="nav-number">3.6.</span> <span class="nav-text">预剪枝 vs. 后剪枝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%80%BC"><span class="nav-number">3.7.</span> <span class="nav-text">连续值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E2%80%9C%E6%A0%91%E2%80%9D%E5%88%B0%E2%80%9C%E8%A7%84%E5%88%99%E2%80%9D"><span class="nav-number">3.8.</span> <span class="nav-text">从“树”到“规则”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%B4%E5%B9%B3%E8%A1%8C%E5%88%92%E5%88%86"><span class="nav-number">3.9.</span> <span class="nav-text">轴平行划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">3.10.</span> <span class="nav-text">决策树的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">4.</span> <span class="nav-text">神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">什么时神经网络（学习模型）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%B1%82%E5%89%8D%E9%A6%88%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="nav-number">4.3.</span> <span class="nav-text">多层前馈网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%91%E5%B1%95"><span class="nav-number">4.4.</span> <span class="nav-text">神经网络发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%B7%AE%E9%80%86%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%EF%BC%88BP%EF%BC%89"><span class="nav-number">4.5.</span> <span class="nav-text">误差逆传播算法（BP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E6%9C%80%E5%B0%8F-vs-%E5%B1%80%E9%83%A8%E6%9E%81%E5%B0%8F"><span class="nav-number">4.6.</span> <span class="nav-text">全局最小 vs. 局部极小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.7.</span> <span class="nav-text">其他常见神经网络模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%AF%80%E7%AA%8D"><span class="nav-number">4.8.</span> <span class="nav-text">常用诀窍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E7%89%B9%E5%BE%81%EF%BC%9A-%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0-%E3%80%81%E8%81%94%E5%90%88%E4%BC%98%E5%8C%96"><span class="nav-number">4.9.</span> <span class="nav-text">深度学习最重要的特征： 表示学习 、联合优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="nav-number">5.</span> <span class="nav-text">支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%B4%E9%9A%94%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%EF%BC%88SVM%EF%BC%89%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">间隔与支持向量（SVM）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98"><span class="nav-number">5.2.</span> <span class="nav-text">对偶问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="nav-number">5.3.</span> <span class="nav-text">核函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E9%97%B4%E9%9A%94%E5%92%8C%E7%A1%AC%E9%97%B4%E9%9A%94%EF%BC%9A"><span class="nav-number">5.4.</span> <span class="nav-text">软间隔和硬间隔：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96%EF%BC%9A"><span class="nav-number">5.5.</span> <span class="nav-text">正则化：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E5%9B%9E%E5%BD%92%EF%BC%88SVR%EF%BC%8C%E5%B8%A6%E5%AE%BD%E5%BF%8D%E6%88%96%E5%85%AC%E5%B7%AE%E5%B8%A6%E7%9A%84%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="nav-number">5.6.</span> <span class="nav-text">支持向量回归（SVR，带宽忍或公差带的模型）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="nav-number">6.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AA%E4%BD%93%E4%B8%8E%E9%9B%86%E6%88%90"><span class="nav-number">6.1.</span> <span class="nav-text">个体与集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boosting-%E2%80%93-AdaBoost"><span class="nav-number">6.2.</span> <span class="nav-text">Boosting – AdaBoost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bagging%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="nav-number">6.3.</span> <span class="nav-text">Bagging与随机森林</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E5%90%88%E7%AD%96%E7%95%A5"><span class="nav-number">6.4.</span> <span class="nav-text">结合策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%A0%B7%E6%80%A7"><span class="nav-number">6.5.</span> <span class="nav-text">多样性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB"><span class="nav-number">7.</span> <span class="nav-text">聚类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E4%BB%BB%E5%8A%A1"><span class="nav-number">7.1.</span> <span class="nav-text">聚类任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F-1"><span class="nav-number">7.2.</span> <span class="nav-text">性能度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97"><span class="nav-number">7.3.</span> <span class="nav-text">距离计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E8%81%9A%E7%B1%BB%EF%BC%88%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%9A%84%E8%81%9A%E7%B1%BB%EF%BC%89%EF%BC%9A%E5%81%87%E8%AE%BE%E8%81%9A%E7%B1%BB%E7%BB%93%E6%9E%84%E8%83%BD%E9%80%9A%E8%BF%87%E4%B8%80%E7%BB%84%E5%8E%9F%E5%9E%8B%E5%88%BB%E7%94%BB%E3%80%82"><span class="nav-number">7.4.</span> <span class="nav-text">原型聚类（基于原型的聚类）：假设聚类结构能通过一组原型刻画。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E5%BA%A6%E8%81%9A%E7%B1%BB%EF%BC%88%E5%9F%BA%E4%BA%8E%E5%AF%86%E5%BA%A6%E7%9A%84%E8%81%9A%E7%B1%BB%EF%BC%89"><span class="nav-number">7.5.</span> <span class="nav-text">密度聚类（基于密度的聚类）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E8%81%9A%E7%B1%BB"><span class="nav-number">7.6.</span> <span class="nav-text">层次聚类</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpYW5zenRpYW5zeg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tiansztiansz"><i class=" fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjg2MDY4OTM=" title="bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;28606893"><i class=" fa-fw"></i>bilibili</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jaGluZXNlLmZyZWVjb2RlY2FtcC5vcmcvbGVhcm4v" title="https:&#x2F;&#x2F;chinese.freecodecamp.org&#x2F;learn&#x2F;">freeCodeCamp</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvL2FjY291bnRzL3NpZ251cA==" title="https:&#x2F;&#x2F;codepen.io&#x2F;accounts&#x2F;signup">CodePen</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04v" title="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;">mdn</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcv" title="https:&#x2F;&#x2F;cn.vuejs.org&#x2F;">Vue.js</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC5kb2NzY2hpbmEub3JnLw==" title="https:&#x2F;&#x2F;react.docschina.org&#x2F;">React</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tYXJrZG93bi5jb20uY24v" title="https:&#x2F;&#x2F;markdown.com.cn&#x2F;">Markdown</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly90ZW5zb3JmbG93Lmdvb2dsZS5jbi9qcz9obD16aC1jbg==" title="https:&#x2F;&#x2F;tensorflow.google.cn&#x2F;js?hl&#x3D;zh-cn">TensorFlow.js</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cubm93Y29kZXIuY29tL2V4YW0vb2o/dGFiPSVFNSU4OSU4RCVFNyVBQiVBRiVFNyVBRiU4NyZ0b3BpY0lkPTI2MA==" title="https:&#x2F;&#x2F;www.nowcoder.com&#x2F;exam&#x2F;oj?tab&#x3D;%E5%89%8D%E7%AB%AF%E7%AF%87&amp;topicId&#x3D;260">牛客网</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jbi5iaW5nLmNvbS90cmFuc2xhdG9yP3JlZj1UVGhpcyZ0ZXh0PSZmcm9tPSZ0bz0mbWt0PXpoLUNO" title="https:&#x2F;&#x2F;cn.bing.com&#x2F;translator?ref&#x3D;TThis&amp;text&#x3D;&amp;from&#x3D;&amp;to&#x3D;&amp;mkt&#x3D;zh-CN">微软翻译</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vY24vZ2V0LXN0YXJ0ZWQvcXVpY2tzdGFydC9oZWxsby13b3JsZA==" title="https:&#x2F;&#x2F;docs.github.com&#x2F;cn&#x2F;get-started&#x2F;quickstart&#x2F;hello-world">GitHub Docs</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3d4b3Blbi9wbHVnaW5kZXZkb2M/YXBwaWQ9d3g2YWZlZDExOGQ5ZTgxZGY5JnRva2VuPSZsYW5nPXpoX0NOI3RlbnNvcmZsb3ctanMt" title="https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;wxopen&#x2F;plugindevdoc?appid&#x3D;wx6afed118d9e81df9&amp;token&#x3D;&amp;lang&#x3D;zh_CN#tensorflow-js-">tfjs微信小程序</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93dzIubWF0aHdvcmtzLmNuL2hlbHAvaW5kZXguaHRtbA==" title="https:&#x2F;&#x2F;ww2.mathworks.cn&#x2F;help&#x2F;index.html">matlab帮助</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93ZXJlYWQucXEuY29tLw==" title="https:&#x2F;&#x2F;weread.qq.com&#x2F;">微信读书</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jYW5pdXNlLmNvbS8=" title="https:&#x2F;&#x2F;caniuse.com&#x2F;">caniuse</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9jLnJ1bm9vYi5jb20vZnJvbnQtZW5kLzU5Lw==" title="https:&#x2F;&#x2F;c.runoob.com&#x2F;front-end&#x2F;59&#x2F;">base64</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9tYW4ubmlhb2dlLmNvbS8=" title="https:&#x2F;&#x2F;man.niaoge.com&#x2F;">鸟哥Linux命令大全</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuenlidWx1by5jb20vY29kZWVwL25vdGUvMTYzOTYyIzElRTUlQTYlODIlRTQlQkQlOTUlRTYlOEYlOTIlRTUlODUlQTUlRTUlODUlQUMlRTUlQkMlOEY=" title="https:&#x2F;&#x2F;www.zybuluo.com&#x2F;codeep&#x2F;note&#x2F;163962#1%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E5%85%AC%E5%BC%8F">Markdown数学公式</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWxvdmVwZGYuY29tL3poLWNu" title="https:&#x2F;&#x2F;www.ilovepdf.com&#x2F;zh-cn">ilovepdf</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly96ZWFsZG9jcy5vcmcv" title="https:&#x2F;&#x2F;zealdocs.org&#x2F;">Zeal</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cudzNjc2Nob29sLmNuL3Rvb2xzL2luZGV4P25hbWU9Y3JlYXRlX3JlZw==" title="https:&#x2F;&#x2F;www.w3cschool.cn&#x2F;tools&#x2F;index?name&#x3D;create_reg">正则表达式</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宁静致远</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9taXN0LnRoZW1lLW5leHQub3Jn">NexT.Mist</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : ,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://tiansztiansz.github.io/2022/01/31/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91%E5%88%9D%E5%AD%A6%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '9bb0ec741dd8e16027ed',
+      clientSecret: 'a106aa5fcacccdda2505b99961042b051d10e0c2',
+      repo        : 'tiansztiansz.github.io',
+      owner       : 'tiansztiansz',
+      admin       : ['tiansztiansz'],
+      id          : '4c58fb6573db0641f16aac204a853aac',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
